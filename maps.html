@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R User Notebook</title>
+  <meta name="description" content="A notebook of useful R code and concepts">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R User Notebook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A notebook of useful R code and concepts" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R User Notebook" />
+  
+  <meta name="twitter:description" content="A notebook of useful R code and concepts" />
+  
+
+<meta name="author" content="Kieran Driscoll">
+
+
+<meta name="date" content="2018-09-16">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="charts.html">
+<link rel="next" href="rmarkdown-knitr.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
+<script src="libs/moment-2.8.4/moment.js"></script>
+<script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
+<script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
+<script src="libs/dygraphs-binding-1.1.1.4/dygraphs.js"></script>
+<link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-0.7.7/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<link href="libs/leaflet-label-0.2.2/leaflet.label.css" rel="stylesheet" />
+<script src="libs/leaflet-label-0.2.2/leaflet.label.js"></script>
+<script src="libs/Proj4Leaflet-0.7.2/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-0.7.2/proj4leaflet.js"></script>
+<script src="libs/leaflet-binding-1.1.0/leaflet.js"></script>
+<script src="libs/d3-4.3.0/d3.min.js"></script>
+<script src="libs/d3-lasso-0.0.5/d3-lasso.min.js"></script>
+<link href="libs/ggiraph-0.3.0/styles.css" rel="stylesheet" />
+<script src="libs/ggiraph-0.3.0/ggiraph_utils.js"></script>
+<script src="libs/ggiraph-0.3.0/ggiraph_over_effect.js"></script>
+<script src="libs/ggiraph-0.3.0/ggiraph_zoom.js"></script>
+<script src="libs/ggiraph-0.3.0/ggiraph_tooltip.js"></script>
+<script src="libs/ggiraph-0.3.0/ggiraph_selector.js"></script>
+<script src="libs/ggiraph-binding-0.4.4/ggiraph.js"></script>
+<script src="libs/svg_1-0.0.1/scripts_svg_1.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> R User Notebook</a></li>
+<li class="chapter" data-level="2" data-path="basic-concepts.html"><a href="basic-concepts.html"><i class="fa fa-check"></i><b>2</b> Basic Concepts</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-concepts.html"><a href="basic-concepts.html#vectors"><i class="fa fa-check"></i><b>2.1</b> Vectors</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-concepts.html"><a href="basic-concepts.html#lists"><i class="fa fa-check"></i><b>2.2</b> Lists</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-concepts.html"><a href="basic-concepts.html#factors"><i class="fa fa-check"></i><b>2.3</b> Factors</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-concepts.html"><a href="basic-concepts.html#dataframes"><i class="fa fa-check"></i><b>2.4</b> Dataframes</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-concepts.html"><a href="basic-concepts.html#tibbles"><i class="fa fa-check"></i><b>2.5</b> Tibbles</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-concepts.html"><a href="basic-concepts.html#extracting-data-from-dataframestibbles"><i class="fa fa-check"></i><b>2.6</b> Extracting data from Dataframes/Tibbles</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-concepts.html"><a href="basic-concepts.html#dates"><i class="fa fa-check"></i><b>2.7</b> Dates</a></li>
+<li class="chapter" data-level="2.8" data-path="basic-concepts.html"><a href="basic-concepts.html#style-guide"><i class="fa fa-check"></i><b>2.8</b> Style Guide</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="importing-exporting.html"><a href="importing-exporting.html"><i class="fa fa-check"></i><b>3</b> Importing &amp; Exporting</a><ul>
+<li class="chapter" data-level="3.1" data-path="importing-exporting.html"><a href="importing-exporting.html#importing"><i class="fa fa-check"></i><b>3.1</b> Importing</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="importing-exporting.html"><a href="importing-exporting.html#importing-a-csv"><i class="fa fa-check"></i><b>3.1.1</b> Importing a CSV</a></li>
+<li class="chapter" data-level="3.1.2" data-path="importing-exporting.html"><a href="importing-exporting.html#importing-a-tsv"><i class="fa fa-check"></i><b>3.1.2</b> Importing a TSV</a></li>
+<li class="chapter" data-level="3.1.3" data-path="importing-exporting.html"><a href="importing-exporting.html#importing-a-r-data-file"><i class="fa fa-check"></i><b>3.1.3</b> Importing a R data file</a></li>
+<li class="chapter" data-level="3.1.4" data-path="importing-exporting.html"><a href="importing-exporting.html#importing-a-excel-file"><i class="fa fa-check"></i><b>3.1.4</b> Importing a Excel file</a></li>
+<li class="chapter" data-level="3.1.5" data-path="importing-exporting.html"><a href="importing-exporting.html#importing-a-sas-file"><i class="fa fa-check"></i><b>3.1.5</b> Importing a SAS file</a></li>
+<li class="chapter" data-level="3.1.6" data-path="importing-exporting.html"><a href="importing-exporting.html#importing-with-base-r"><i class="fa fa-check"></i><b>3.1.6</b> Importing with Base R</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="importing-exporting.html"><a href="importing-exporting.html#exporting"><i class="fa fa-check"></i><b>3.2</b> Exporting</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="importing-exporting.html"><a href="importing-exporting.html#write-to-an-r-dataset"><i class="fa fa-check"></i><b>3.2.1</b> Write to an R dataset</a></li>
+<li class="chapter" data-level="3.2.2" data-path="importing-exporting.html"><a href="importing-exporting.html#write-to-an-csv-file"><i class="fa fa-check"></i><b>3.2.2</b> Write to an CSV file</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="manipultaing-data.html"><a href="manipultaing-data.html"><i class="fa fa-check"></i><b>4</b> Manipultaing data</a><ul>
+<li class="chapter" data-level="4.1" data-path="manipultaing-data.html"><a href="manipultaing-data.html#basic-data-wrangling"><i class="fa fa-check"></i><b>4.1</b> Basic data wrangling:</a></li>
+<li class="chapter" data-level="4.2" data-path="manipultaing-data.html"><a href="manipultaing-data.html#summary-statistics"><i class="fa fa-check"></i><b>4.2</b> Summary statistics:</a></li>
+<li class="chapter" data-level="4.3" data-path="manipultaing-data.html"><a href="manipultaing-data.html#conditional-statements"><i class="fa fa-check"></i><b>4.3</b> Conditional statements</a></li>
+<li class="chapter" data-level="4.4" data-path="manipultaing-data.html"><a href="manipultaing-data.html#appending-joins"><i class="fa fa-check"></i><b>4.4</b> Appending &amp; Joins:</a></li>
+<li class="chapter" data-level="4.5" data-path="manipultaing-data.html"><a href="manipultaing-data.html#tidyr-tidy-data"><i class="fa fa-check"></i><b>4.5</b> tidyr &amp; tidy data</a></li>
+<li class="chapter" data-level="4.6" data-path="manipultaing-data.html"><a href="manipultaing-data.html#tibbles-1"><i class="fa fa-check"></i><b>4.6</b> tibbles</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>5</b> Functions</a><ul>
+<li class="chapter" data-level="5.1" data-path="functions.html"><a href="functions.html#function-basics---an-example-using-str"><i class="fa fa-check"></i><b>5.1</b> Function Basics - an example using str()</a></li>
+<li class="chapter" data-level="5.2" data-path="functions.html"><a href="functions.html#common-base-functions"><i class="fa fa-check"></i><b>5.2</b> Common (base) functions</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="functions.html"><a href="functions.html#strings"><i class="fa fa-check"></i><b>5.2.1</b> Strings</a></li>
+<li class="chapter" data-level="5.2.2" data-path="functions.html"><a href="functions.html#mathematical"><i class="fa fa-check"></i><b>5.2.2</b> Mathematical</a></li>
+<li class="chapter" data-level="5.2.3" data-path="functions.html"><a href="functions.html#properties-lookups"><i class="fa fa-check"></i><b>5.2.3</b> Properties &amp; Lookups</a></li>
+<li class="chapter" data-level="5.2.4" data-path="functions.html"><a href="functions.html#transformation"><i class="fa fa-check"></i><b>5.2.4</b> Transformation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="functions.html"><a href="functions.html#stringr---more-string-functions"><i class="fa fa-check"></i><b>5.3</b> Stringr - more string functions</a></li>
+<li class="chapter" data-level="5.4" data-path="functions.html"><a href="functions.html#lubridate---more-date-functions"><i class="fa fa-check"></i><b>5.4</b> Lubridate - more date functions</a></li>
+<li class="chapter" data-level="5.5" data-path="functions.html"><a href="functions.html#converting-data-to-other-formats"><i class="fa fa-check"></i><b>5.5</b> Converting data to other formats</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="functions.html"><a href="functions.html#json"><i class="fa fa-check"></i><b>5.5.1</b> JSON</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="functions.html"><a href="functions.html#user-defined-functions"><i class="fa fa-check"></i><b>5.6</b> User Defined Functions</a></li>
+<li class="chapter" data-level="5.7" data-path="functions.html"><a href="functions.html#chainingpiping"><i class="fa fa-check"></i><b>5.7</b> Chaining/Piping</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>6</b> Loops</a><ul>
+<li class="chapter" data-level="6.1" data-path="loops.html"><a href="loops.html#basic-loop-structure"><i class="fa fa-check"></i><b>6.1</b> Basic Loop structure:</a></li>
+<li class="chapter" data-level="6.2" data-path="loops.html"><a href="loops.html#looping-with-vectors"><i class="fa fa-check"></i><b>6.2</b> Looping with vectors</a></li>
+<li class="chapter" data-level="6.3" data-path="loops.html"><a href="loops.html#creating-a-list-in-a-loop"><i class="fa fa-check"></i><b>6.3</b> Creating a List in a Loop</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="html-tables.html"><a href="html-tables.html"><i class="fa fa-check"></i><b>7</b> HTML tables</a><ul>
+<li class="chapter" data-level="7.1" data-path="html-tables.html"><a href="html-tables.html#static-html-table---htmltable"><i class="fa fa-check"></i><b>7.1</b> Static HTML table - htmlTable</a></li>
+<li class="chapter" data-level="7.2" data-path="html-tables.html"><a href="html-tables.html#intearctive-html-table---dt"><i class="fa fa-check"></i><b>7.2</b> Intearctive HTML table - DT</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="charts.html"><a href="charts.html"><i class="fa fa-check"></i><b>8</b> Charts</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="charts.html"><a href="charts.html#static-charts-with-ggplot2"><i class="fa fa-check"></i><b>8.0.1</b> Static charts with ggplot2</a></li>
+<li class="chapter" data-level="8.0.2" data-path="charts.html"><a href="charts.html#interactive-charts-with-ggiraph"><i class="fa fa-check"></i><b>8.0.2</b> Interactive charts with ggiraph</a></li>
+<li class="chapter" data-level="8.0.3" data-path="charts.html"><a href="charts.html#interactive-charts-with-dygraph"><i class="fa fa-check"></i><b>8.0.3</b> Interactive charts with dygraph</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="maps.html"><a href="maps.html"><i class="fa fa-check"></i><b>9</b> Maps</a><ul>
+<li class="chapter" data-level="9.1" data-path="maps.html"><a href="maps.html#leaflet"><i class="fa fa-check"></i><b>9.1</b> Leaflet</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="maps.html"><a href="maps.html#display-a-basic-map"><i class="fa fa-check"></i><b>9.1.1</b> Display a basic map</a></li>
+<li class="chapter" data-level="9.1.2" data-path="maps.html"><a href="maps.html#add-markers-shapes-and-popups-to-a-map"><i class="fa fa-check"></i><b>9.1.2</b> Add markers, shapes and popups to a map</a></li>
+<li class="chapter" data-level="9.1.3" data-path="maps.html"><a href="maps.html#add-boundaries"><i class="fa fa-check"></i><b>9.1.3</b> Add Boundaries</a></li>
+<li class="chapter" data-level="9.1.4" data-path="maps.html"><a href="maps.html#add-interactivity"><i class="fa fa-check"></i><b>9.1.4</b> Add Interactivity</a></li>
+<li class="chapter" data-level="9.1.5" data-path="maps.html"><a href="maps.html#attach-extra-information-to-your-boundary-dataset"><i class="fa fa-check"></i><b>9.1.5</b> Attach extra information to your boundary dataset</a></li>
+<li class="chapter" data-level="9.1.6" data-path="maps.html"><a href="maps.html#add-colour-based-on-area-data"><i class="fa fa-check"></i><b>9.1.6</b> Add colour based on area data</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="maps.html"><a href="maps.html#inserting-html-javascript-directly-into-r"><i class="fa fa-check"></i><b>9.2</b> Inserting HTML &amp; Javascript directly into R</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="rmarkdown-knitr.html"><a href="rmarkdown-knitr.html"><i class="fa fa-check"></i><b>10</b> RMarkdown &amp; Knitr</a><ul>
+<li class="chapter" data-level="10.1" data-path="rmarkdown-knitr.html"><a href="rmarkdown-knitr.html#knitr"><i class="fa fa-check"></i><b>10.1</b> Knitr</a></li>
+<li class="chapter" data-level="10.2" data-path="rmarkdown-knitr.html"><a href="rmarkdown-knitr.html#yaml"><i class="fa fa-check"></i><b>10.2</b> YAML</a></li>
+<li class="chapter" data-level="10.3" data-path="rmarkdown-knitr.html"><a href="rmarkdown-knitr.html#modular-coding"><i class="fa fa-check"></i><b>10.3</b> Modular coding</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="machine-learning-predictive-analytics.html"><a href="machine-learning-predictive-analytics.html"><i class="fa fa-check"></i><b>11</b> Machine Learning &amp; Predictive Analytics</a><ul>
+<li class="chapter" data-level="11.0.1" data-path="machine-learning-predictive-analytics.html"><a href="machine-learning-predictive-analytics.html#decision-trees"><i class="fa fa-check"></i><b>11.0.1</b> Decision Trees</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="text-mining-nlp.html"><a href="text-mining-nlp.html"><i class="fa fa-check"></i><b>12</b> Text Mining &amp; NLP</a><ul>
+<li class="chapter" data-level="12.0.1" data-path="text-mining-nlp.html"><a href="text-mining-nlp.html#text-data"><i class="fa fa-check"></i><b>12.0.1</b> Text data</a></li>
+<li class="chapter" data-level="12.0.2" data-path="text-mining-nlp.html"><a href="text-mining-nlp.html#tidy-text"><i class="fa fa-check"></i><b>12.0.2</b> Tidy text</a></li>
+<li class="chapter" data-level="12.0.3" data-path="text-mining-nlp.html"><a href="text-mining-nlp.html#stemming"><i class="fa fa-check"></i><b>12.0.3</b> Stemming</a></li>
+<li class="chapter" data-level="12.0.4" data-path="text-mining-nlp.html"><a href="text-mining-nlp.html#basic-text-stats"><i class="fa fa-check"></i><b>12.0.4</b> Basic text stats</a></li>
+<li class="chapter" data-level="12.0.5" data-path="text-mining-nlp.html"><a href="text-mining-nlp.html#n-grams-analysis"><i class="fa fa-check"></i><b>12.0.5</b> N-Grams analysis</a></li>
+<li class="chapter" data-level="12.0.6" data-path="text-mining-nlp.html"><a href="text-mining-nlp.html#text-preparation-with-tm"><i class="fa fa-check"></i><b>12.0.6</b> Text Preparation with <strong>tm</strong></a></li>
+<li class="chapter" data-level="12.1" data-path="text-mining-nlp.html"><a href="text-mining-nlp.html#create-a-term-document-matrix"><i class="fa fa-check"></i><b>12.1</b> Create a Term Document Matrix</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="text-mining-nlp.html"><a href="text-mining-nlp.html#from-a-corpus-by-default-words-less-than-3-characters-are-excluded"><i class="fa fa-check"></i><b>12.1.1</b> From a Corpus (by default words less than 3 characters are excluded)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="text-mining-nlp.html"><a href="text-mining-nlp.html#topic-modelling-latent-dirichlet-allocation-lda"><i class="fa fa-check"></i><b>12.2</b> Topic Modelling &amp; Latent Dirichlet Allocation (LDA)</a></li>
+<li class="chapter" data-level="12.3" data-path="text-mining-nlp.html"><a href="text-mining-nlp.html#naive-bayes-classifiers"><i class="fa fa-check"></i><b>12.3</b> Naive Bayes Classifiers</a></li>
+<li class="chapter" data-level="12.4" data-path="text-mining-nlp.html"><a href="text-mining-nlp.html#tf-idf-classifiers-supervised"><i class="fa fa-check"></i><b>12.4</b> TF-IDF Classifiers (Supervised)</a></li>
+<li class="chapter" data-level="12.5" data-path="text-mining-nlp.html"><a href="text-mining-nlp.html#sentiment-analysis"><i class="fa fa-check"></i><b>12.5</b> Sentiment Analysis</a></li>
+<li class="chapter" data-level="12.6" data-path="text-mining-nlp.html"><a href="text-mining-nlp.html#word-bubble"><i class="fa fa-check"></i><b>12.6</b> Word Bubble</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="shiny.html"><a href="shiny.html"><i class="fa fa-check"></i><b>13</b> Shiny</a><ul>
+<li class="chapter" data-level="13.1" data-path="shiny.html"><a href="shiny.html#basic-shiny-structure"><i class="fa fa-check"></i><b>13.1</b> Basic Shiny Structure</a></li>
+<li class="chapter" data-level="13.2" data-path="shiny.html"><a href="shiny.html#user-interface"><i class="fa fa-check"></i><b>13.2</b> User Interface</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="shiny.html"><a href="shiny.html#layout"><i class="fa fa-check"></i><b>13.2.1</b> Layout</a></li>
+<li class="chapter" data-level="13.2.2" data-path="shiny.html"><a href="shiny.html#inputs"><i class="fa fa-check"></i><b>13.2.2</b> Inputs</a></li>
+<li class="chapter" data-level="13.2.3" data-path="shiny.html"><a href="shiny.html#outputs"><i class="fa fa-check"></i><b>13.2.3</b> Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="shiny.html"><a href="shiny.html#server"><i class="fa fa-check"></i><b>13.3</b> Server</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="shiny.html"><a href="shiny.html#linking-to-ui-outputs"><i class="fa fa-check"></i><b>13.3.1</b> Linking to UI outputs</a></li>
+<li class="chapter" data-level="13.3.2" data-path="shiny.html"><a href="shiny.html#linking-to-ui-inputs"><i class="fa fa-check"></i><b>13.3.2</b> Linking to UI inputs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="shiny-dashboard.html"><a href="shiny-dashboard.html"><i class="fa fa-check"></i><b>14</b> Shiny Dashboard</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R User Notebook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="maps" class="section level1">
+<h1><span class="header-section-number">9</span> Maps</h1>
+<div id="leaflet" class="section level2">
+<h2><span class="header-section-number">9.1</span> Leaflet</h2>
+<p>To create interactive maps you need the <strong>leaflet</strong> library. This provides various functions that will be transalated into Javascript.</p>
+<div id="display-a-basic-map" class="section level3">
+<h3><span class="header-section-number">9.1.1</span> Display a basic map</h3>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="kw">library</span>(leaflet)</a>
+<a class="sourceLine" id="cb104-2" data-line-number="2">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">leaflet</span>() <span class="co">#This initiates a map; it is possible to change the width and height here</span></a>
+<a class="sourceLine" id="cb104-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb104-4" data-line-number="4">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">setView</span>(mymap,<span class="dt">lng=</span><span class="op">-</span><span class="fl">0.12481</span>,<span class="dt">lat=</span><span class="fl">51.50811</span>,<span class="dt">zoom=</span><span class="dv">10</span>) <span class="co">#The initial location (longitude+latitude) and zoom level can be set </span></a>
+<a class="sourceLine" id="cb104-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb104-6" data-line-number="6">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addTiles</span>(mymap) <span class="co">#This add tiles to the map; by default it uses OpenStreetMap</span></a>
+<a class="sourceLine" id="cb104-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb104-8" data-line-number="8">mymap <span class="co"># this will display the map</span></a></code></pre></div>
+<div id="htmlwidget-71af9764f6dad76180ac" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-71af9764f6dad76180ac">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[51.50811,-0.12481],10,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="add-markers-shapes-and-popups-to-a-map" class="section level3">
+<h3><span class="header-section-number">9.1.2</span> Add markers, shapes and popups to a map</h3>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addMarkers</span>(mymap, <span class="dt">lng=</span><span class="op">-</span><span class="fl">0.126965</span>, <span class="dt">lat=</span><span class="fl">51.501555</span>, <span class="dt">popup=</span><span class="st">&quot;HMRC&quot;</span>) <span class="co">#Use longitude and latitude to place a marker. The default blue marker is used.</span></a>
+<a class="sourceLine" id="cb105-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb105-3" data-line-number="3">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addCircles</span>(mymap, <span class="dt">lng=</span><span class="op">-</span><span class="fl">0.021002</span>, <span class="dt">lat=</span><span class="fl">51.504475</span>,<span class="dt">radius=</span><span class="dv">10</span>, <span class="dt">popup=</span><span class="st">&quot;HMRC&quot;</span>) <span class="co">#Use longitude and latitude to place a circle, and radius (in metres) for its size. </span></a>
+<a class="sourceLine" id="cb105-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb105-5" data-line-number="5">mymap</a></code></pre></div>
+<div id="htmlwidget-02faffa72b8d1b4665d9" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-02faffa72b8d1b4665d9">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[51.50811,-0.12481],10,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[51.501555,-0.126965,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"HMRC",null,null,null,null,null,null]},{"method":"addCircles","args":[51.504475,-0.021002,10,null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2,"dashArray":null},"HMRC",null,null,null,null,null]}],"limits":{"lat":[51.501555,51.504475],"lng":[-0.126965,-0.021002]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="add-boundaries" class="section level3">
+<h3><span class="header-section-number">9.1.3</span> Add Boundaries</h3>
+<p>To add boundaries you need geojson or topojson. This needs to be converted into a format the R understands using functions in the geojsonio library.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="kw">library</span>(geojsonio)</a>
+<a class="sourceLine" id="cb106-2" data-line-number="2">la &lt;-<span class="st"> </span>geojsonio<span class="op">::</span><span class="kw">topojson_read</span>(<span class="st">&#39;~/R/Local_Auths_Dec16_Gen_Clip_GB.json&#39;</span>)</a></code></pre></div>
+<p>R converts this geojson into a Spatial Polygon Dataframe (SPD). This should consist of 2 main attributes: <strong>data</strong> which has descriptive information about the polygon such as a name, and <strong>polygons</strong> and contains all the coordinates for each polygon. To see what the contain you can us the following:</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1">la<span class="op">@</span>data</a>
+<a class="sourceLine" id="cb107-2" data-line-number="2">la<span class="op">@</span>polygons</a>
+<a class="sourceLine" id="cb107-3" data-line-number="3"><span class="co"># The @ symbol is used to access different &#39;slots&#39; in the SPD. </span></a></code></pre></div>
+<p>The boundary data can now be attached to the map when it is first initialized.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">leaflet</span>(la)</a>
+<a class="sourceLine" id="cb108-2" data-line-number="2">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">setView</span>(mymap,<span class="dt">lng=</span><span class="op">-</span><span class="fl">3.332291</span>,<span class="dt">lat=</span><span class="fl">54.978353</span>,<span class="dt">zoom=</span><span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb108-3" data-line-number="3">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addPolygons</span>(mymap, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>,<span class="dt">weight=</span><span class="dv">1</span>, <span class="dt">fillColor=</span><span class="st">&#39;white&#39;</span>,<span class="dt">fillOpacity =</span> <span class="fl">0.8</span>) <span class="co">#This draws the boundary lines</span></a>
+<a class="sourceLine" id="cb108-4" data-line-number="4">mymap</a></code></pre></div>
+</div>
+<div id="add-interactivity" class="section level3">
+<h3><span class="header-section-number">9.1.4</span> Add Interactivity</h3>
+<p>Highlights can be added when you hover over an area.</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addPolygons</span>(mymap,</a>
+<a class="sourceLine" id="cb109-2" data-line-number="2">                              <span class="dt">color=</span><span class="st">&#39;black&#39;</span>,</a>
+<a class="sourceLine" id="cb109-3" data-line-number="3">                              <span class="dt">weight=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb109-4" data-line-number="4">                              <span class="dt">fillColor=</span><span class="st">&#39;white&#39;</span>,</a>
+<a class="sourceLine" id="cb109-5" data-line-number="5">                              <span class="dt">fillOpacity =</span> <span class="fl">0.8</span>       ,</a>
+<a class="sourceLine" id="cb109-6" data-line-number="6">                              <span class="dt">highlight =</span> <span class="kw">highlightOptions</span>(</a>
+<a class="sourceLine" id="cb109-7" data-line-number="7">                                  <span class="dt">weight =</span> <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb109-8" data-line-number="8">                                  <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>,</a>
+<a class="sourceLine" id="cb109-9" data-line-number="9">                                  <span class="dt">bringToFront =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb109-10" data-line-number="10">                              )</a></code></pre></div>
+<p>Popup info can also be added when you hover over an area. This requires using the sprintf function, which includes HTML.</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1">mylabel &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">&quot;&lt;strong&gt;%s&lt;/strong&gt;&lt;br/&gt;%s&quot;</span>, la<span class="op">$</span>lad16nm, la<span class="op">$</span>lad16cd ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">lapply</span>(htmltools<span class="op">::</span>HTML)</a>
+<a class="sourceLine" id="cb110-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb110-3" data-line-number="3"><span class="co"># These can can now be assigned to the label attribute</span></a>
+<a class="sourceLine" id="cb110-4" data-line-number="4">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addPolygons</span>(mymap, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>,<span class="dt">weight=</span><span class="dv">1</span>, <span class="dt">fillColor=</span><span class="st">&#39;white&#39;</span>,<span class="dt">fillOpacity =</span> <span class="fl">0.8</span>,</a>
+<a class="sourceLine" id="cb110-5" data-line-number="5">          <span class="dt">highlight =</span> <span class="kw">highlightOptions</span>(</a>
+<a class="sourceLine" id="cb110-6" data-line-number="6">          <span class="dt">weight =</span> <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb110-7" data-line-number="7">          <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>,</a>
+<a class="sourceLine" id="cb110-8" data-line-number="8">          <span class="dt">bringToFront =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb110-9" data-line-number="9">          <span class="dt">label =</span> mylabel)</a></code></pre></div>
+<p>The code that is written in the <strong>sprintf</strong> function rquires a special format. The first argument defines what and how text willl be dispalayed. It includes placeholders (eg. %s) that can have differnet types. All subsequent arguments represent the data variables that will are represented by the placeholders (in the order they occur).For more info see <a href="https://www.rdocumentation.org/packages/base/versions/3.4.3/topics/sprintf" class="uri">https://www.rdocumentation.org/packages/base/versions/3.4.3/topics/sprintf</a>.</p>
+</div>
+<div id="attach-extra-information-to-your-boundary-dataset" class="section level3">
+<h3><span class="header-section-number">9.1.5</span> Attach extra information to your boundary dataset</h3>
+<p>You will usually want to add additional data/statistics to the boundary file, so that you can improve visualition/interactivity.
+You can merge a regular dataframe wih an SPD provided they have a common variable (eg. ONS Id’s).</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="co"># First create a dataframe with test data</span></a>
+<a class="sourceLine" id="cb111-2" data-line-number="2">mydf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&#39;lad16cd&#39;</span>=<span class="kw">c</span>(<span class="st">&#39;E06000001&#39;</span>,<span class="st">&#39;E06000002&#39;</span>,<span class="st">&#39;E06000003&#39;</span>),</a>
+<a class="sourceLine" id="cb111-3" data-line-number="3">                   <span class="st">&#39;extraStat&#39;</span>=<span class="kw">c</span>(<span class="dv">25000</span>,<span class="dv">34000</span>,<span class="dv">38000</span>) )</a>
+<a class="sourceLine" id="cb111-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb111-5" data-line-number="5"><span class="co"># Merge extra data into the SPD</span></a>
+<a class="sourceLine" id="cb111-6" data-line-number="6"><span class="kw">require</span>(sp) <span class="co"># Need for the following merge to work correctly</span></a>
+<a class="sourceLine" id="cb111-7" data-line-number="7">la &lt;-<span class="st"> </span>sp<span class="op">::</span><span class="kw">merge</span>(la, mydf, <span class="dt">by.x =</span> <span class="st">&quot;lad16cd&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;lad16cd&quot;</span>)</a>
+<a class="sourceLine" id="cb111-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb111-9" data-line-number="9"><span class="co">#Check that merge has worked</span></a>
+<a class="sourceLine" id="cb111-10" data-line-number="10">la<span class="op">@</span>data <span class="co"># A new column should appear with the extra data </span></a></code></pre></div>
+</div>
+<div id="add-colour-based-on-area-data" class="section level3">
+<h3><span class="header-section-number">9.1.6</span> Add colour based on area data</h3>
+<p>First you will need to define a colour pallete, and the range of values (bins) they will apply to. This is done using the colorBin function.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1">pal &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">colorBin</span>(<span class="st">&quot;YlOrRd&quot;</span>, <span class="dt">bins =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">24999</span>, <span class="dv">34000</span>, <span class="dv">38000</span>, <span class="ot">Inf</span>))</a>
+<a class="sourceLine" id="cb112-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb112-3" data-line-number="3"><span class="co"># &#39;YlorRd&#39; is a particular color scale. See http://colorbrewer2.org for alternatives. You could also create a user defined list of colours using Hexadecimal eg. #fcbba1 instead. </span></a></code></pre></div>
+<p>Now the colour pallete can be assigned to the <strong>fillColor</strong> attribute, allomg with the variable name that will be used .</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addPolygons</span>(mymap,</a>
+<a class="sourceLine" id="cb113-2" data-line-number="2">                     <span class="dt">color=</span><span class="st">&#39;black&#39;</span>,</a>
+<a class="sourceLine" id="cb113-3" data-line-number="3">                     <span class="dt">weight=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb113-4" data-line-number="4">                     <span class="dt">fillColor=</span><span class="op">~</span><span class="kw">pal</span>(extraStat), <span class="co">#Nb. the ~ indicates that the variable is contained with the la SPD </span></a>
+<a class="sourceLine" id="cb113-5" data-line-number="5">                     <span class="dt">fillOpacity =</span> <span class="fl">0.8</span>,</a>
+<a class="sourceLine" id="cb113-6" data-line-number="6">                     <span class="dt">highlight =</span> <span class="kw">highlightOptions</span>(</a>
+<a class="sourceLine" id="cb113-7" data-line-number="7">                      <span class="dt">weight =</span> <span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb113-8" data-line-number="8">                      <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>,</a>
+<a class="sourceLine" id="cb113-9" data-line-number="9">                      <span class="dt">bringToFront =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+</div>
+</div>
+<div id="inserting-html-javascript-directly-into-r" class="section level2">
+<h2><span class="header-section-number">9.2</span> Inserting HTML &amp; Javascript directly into R</h2>
+<p>Instead of using packages to create javavscript, you can insert javascript directly into Rmarkdown, and it should be displayed correctly when it Knitr is used.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="op">&lt;</span>link rel<span class="op">=</span><span class="st">&quot;stylesheet&quot;</span> href<span class="op">=</span><span class="st">&quot;https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css&quot;</span> /&gt;  </a>
+<a class="sourceLine" id="cb114-2" data-line-number="2"><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">&quot;https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js&quot;</span><span class="op">&gt;</span>&lt;/script<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb114-3" data-line-number="3"><span class="op">&lt;</span>script type<span class="op">=</span><span class="st">&quot;text/javascript&quot;</span> src<span class="op">=</span><span class="st">&quot;https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js&quot;</span><span class="op">&gt;</span>&lt;/script<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb114-4" data-line-number="4"><span class="op">&lt;</span>div id<span class="op">=</span><span class="st">&quot;mapid&quot;</span><span class="op">&gt;</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb114-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb114-6" data-line-number="6"><span class="co">// Define Map area/position and any background tiles </span></a>
+<a class="sourceLine" id="cb114-7" data-line-number="7"> <span class="kw">var</span> map <span class="op">=</span> <span class="kw">new</span> <span class="va">L</span>.<span class="at">Map</span>(<span class="st">&#39;mapid&#39;</span><span class="op">,</span> <span class="op">{</span> <span class="dt">center</span><span class="op">:</span> <span class="kw">new</span> <span class="va">L</span>.<span class="at">LatLng</span>(<span class="fl">53.10</span><span class="op">,</span> <span class="fl">-1.26</span>)<span class="op">,</span><span class="dt">zoom</span><span class="op">:</span> <span class="dv">7</span>   <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb114-8" data-line-number="8"> <span class="kw">var</span> layer <span class="op">=</span> <span class="kw">new</span> <span class="va">L</span>.<span class="at">StamenTileLayer</span>(<span class="st">&quot;terrain&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb114-9" data-line-number="9"> <span class="va">map</span>.<span class="at">addLayer</span>(layer)<span class="op">;</span></a></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="charts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rmarkdown-knitr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
