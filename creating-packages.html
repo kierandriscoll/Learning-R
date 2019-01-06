@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="maps.html">
-<link rel="next" href="machine-learning-predictive-analytics.html">
+<link rel="prev" href="bookdown.html">
+<link rel="next" href="git-version-control.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -306,62 +306,73 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="rmarkdown-knitr" class="section level1">
-<h1><span class="header-section-number">10</span> RMarkdown &amp; Knitr</h1>
-<div id="knitr" class="section level2">
-<h2><span class="header-section-number">10.1</span> Knitr</h2>
-<p>Knitr is a feature in RStudio that will turn your R programme into a HTML (or PDF/Word) document.</p>
-<p>You need to use <strong>RMarkdown</strong>, and write your R code in ‘chunks’. You can include regular markdown text, and also html, javascript or python.</p>
-<p>Knitr will evaulate all the code and embed any tables/charts/maps into the output.</p>
+<div id="creating-packages" class="section level1">
+<h1><span class="header-section-number">15</span> Creating Packages</h1>
+<p>You can create your own packages, which are basically a collection of functions.
+You wil need to have installed the <strong>devtools</strong> package.</p>
+<div id="setup-folders" class="section level2">
+<h2><span class="header-section-number">15.1</span> Setup Folders</h2>
+<p>Create an R Package Project file (File &gt; New Project…&gt; New Directory &gt; R Package).
+Give a name to your package and the location where all the relevant files will be saved.</p>
+<p>Your package folder will contain subfolders ‘R’ and ‘man’ which will contain details of functions.
+By default these should contain ‘hello.R’ and ‘hello.Rd’ files.</p>
 </div>
-<div id="yaml" class="section level2">
-<h2><span class="header-section-number">10.2</span> YAML</h2>
-<p>At the top of all RMarkdown documents there is some YAML code:</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb127-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Untitled&quot;</span></a>
-<a class="sourceLine" id="cb127-3" data-line-number="3"><span class="fu">output:</span><span class="at"> html_document</span></a>
-<a class="sourceLine" id="cb127-4" data-line-number="4"><span class="ot">---</span></a></code></pre></div>
-<p>YAML includes information that tells Knitr what type of document to create. In the example above it wil be a HTML document.</p>
-<p>However it cann also be used to add a table of contents, or to allow users to input cutom paraemters.</p>
-<p><strong>Adding a table of contents</strong></p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb128-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Untitled&quot;</span></a>
-<a class="sourceLine" id="cb128-3" data-line-number="3"><span class="fu">output:</span><span class="at"> html_document</span></a>
-<a class="sourceLine" id="cb128-4" data-line-number="4">  <span class="fu">toc:</span><span class="at"> TRUE</span></a>
-<a class="sourceLine" id="cb128-5" data-line-number="5"><span class="ot">---</span></a></code></pre></div>
-<p>Nb. That the contents is automatically generated based on any RMarkdown header tags ‘#’ that you have used.</p>
-<p><strong>Adding parameters</strong>
-Parameters can be added after the <strong>params:</strong> option. They must have a label and a value. By defaut the parameter will be a textbox.</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb129-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Untitled&quot;</span></a>
-<a class="sourceLine" id="cb129-3" data-line-number="3"><span class="fu">output:</span><span class="at"> html_document</span></a>
-<a class="sourceLine" id="cb129-4" data-line-number="4"><span class="fu">params:</span></a>
-<a class="sourceLine" id="cb129-5" data-line-number="5">  <span class="fu">parametername1:</span></a>
-<a class="sourceLine" id="cb129-6" data-line-number="6">    <span class="fu">label:</span><span class="at"> </span><span class="st">&quot;Display label&quot;</span></a>
-<a class="sourceLine" id="cb129-7" data-line-number="7">    <span class="fu">value:</span><span class="at"> </span><span class="st">&quot;Default value&quot;</span></a>
-<a class="sourceLine" id="cb129-8" data-line-number="8"><span class="ot">---</span></a></code></pre></div>
-<p>Different types of parameter input are allowed, such as check boxes and dropdown lists.</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb130-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Untitled&quot;</span></a>
-<a class="sourceLine" id="cb130-3" data-line-number="3"><span class="fu">output:</span><span class="at"> html_document</span></a>
-<a class="sourceLine" id="cb130-4" data-line-number="4"><span class="fu">params:</span></a>
-<a class="sourceLine" id="cb130-5" data-line-number="5">  <span class="fu">mycheckboxparam:</span></a>
-<a class="sourceLine" id="cb130-6" data-line-number="6">    <span class="fu">label:</span><span class="at"> </span><span class="st">&quot;Display label&quot;</span></a>
-<a class="sourceLine" id="cb130-7" data-line-number="7">    <span class="fu">value:</span><span class="at"> TRUE</span></a>
-<a class="sourceLine" id="cb130-8" data-line-number="8">  <span class="fu">mydropdownparam:</span></a>
-<a class="sourceLine" id="cb130-9" data-line-number="9">    <span class="fu">label:</span><span class="at"> </span><span class="st">&quot;Display label&quot;</span></a>
-<a class="sourceLine" id="cb130-10" data-line-number="10">    <span class="fu">value:</span><span class="at"> apples</span></a>
-<a class="sourceLine" id="cb130-11" data-line-number="11">    <span class="fu">input:</span><span class="at"> select</span></a>
-<a class="sourceLine" id="cb130-12" data-line-number="12">    <span class="fu">choices:</span><span class="at"> </span><span class="kw">[</span>apples<span class="kw">,</span>oranges<span class="kw">,</span>bananas<span class="kw">]</span></a>
-<a class="sourceLine" id="cb130-13" data-line-number="13"><span class="ot">---</span></a></code></pre></div>
-<p>You can refer to the parameter values in the rest of the your code using the form <strong>params%parametername1</strong></p>
-<p>To use these parameters the Rmarkdown document must be Knitted using ‘Knit with parameters…’</p>
+<div id="r-folder" class="section level2">
+<h2><span class="header-section-number">15.2</span> R folder</h2>
+<p>Delete the contents of ‘hello.R’ and replace with your own package function(s). For example:</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1">packagefunction &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</a>
+<a class="sourceLine" id="cb211-2" data-line-number="2">  xyz &lt;-<span class="st"> </span>x<span class="op">*</span>y</a>
+<a class="sourceLine" id="cb211-3" data-line-number="3">  <span class="kw">return</span>(xyz)  </a>
+<a class="sourceLine" id="cb211-4" data-line-number="4">} </a></code></pre></div>
+<p>NB. DO NOT use library() or require() in any function files. See the Dependencies section below.
+Rename the .R file so that it matches the function name.</p>
 </div>
-<div id="modular-coding" class="section level2">
-<h2><span class="header-section-number">10.3</span> Modular coding</h2>
-<p>If your R code is written in modules, then you can call them using the <strong>source()</strong> function, eg:</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="kw">source</span>(<span class="st">&#39;module1.r&#39;</span>)</a>
-<a class="sourceLine" id="cb131-2" data-line-number="2"><span class="kw">source</span>(<span class="st">&#39;module2.r&#39;</span>)</a></code></pre></div>
+<div id="man-folder" class="section level2">
+<h2><span class="header-section-number">15.3</span> man folder</h2>
+<p>Delete the contents of ‘hello.Rd’ and replace with documentation of your own functions.<br />
+A .Rd file is needed <strong>for each function</strong> that you create. It should have the following format:</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" data-line-number="1">\name{ packagefunction }</a>
+<a class="sourceLine" id="cb212-2" data-line-number="2">\alias{ packagefunction }</a>
+<a class="sourceLine" id="cb212-3" data-line-number="3">\title{ A basic <span class="cf">function</span> }</a>
+<a class="sourceLine" id="cb212-4" data-line-number="4">\usage{ <span class="kw">packagefunction</span>() }</a>
+<a class="sourceLine" id="cb212-5" data-line-number="5">\description{ Multiplies <span class="dv">2</span> numbers. }</a>
+<a class="sourceLine" id="cb212-6" data-line-number="6">\examples{ <span class="kw">packagefunction</span>() }</a></code></pre></div>
+<p>Rename the .Rd file so that it matches the function name.</p>
+</div>
+<div id="package-details" class="section level2">
+<h2><span class="header-section-number">15.4</span> Package details</h2>
+<p>By default a ‘DESCRIPTION’ file should have been created such as the example below. You can update these as neccessary.</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1">Package<span class="op">:</span><span class="st"> </span>kdpackage0</a>
+<a class="sourceLine" id="cb213-2" data-line-number="2">Type<span class="op">:</span><span class="st"> </span>Package</a>
+<a class="sourceLine" id="cb213-3" data-line-number="3">Title<span class="op">:</span><span class="st"> </span>What the Package <span class="kw">Does</span> (Title Case)</a>
+<a class="sourceLine" id="cb213-4" data-line-number="4">Version<span class="op">:</span><span class="st"> </span><span class="dv">0</span>.<span class="fl">1.0</span></a>
+<a class="sourceLine" id="cb213-5" data-line-number="5">Author<span class="op">:</span><span class="st"> </span>Who wrote it</a>
+<a class="sourceLine" id="cb213-6" data-line-number="6">Maintainer<span class="op">:</span><span class="st"> </span>The package maintainer <span class="op">&lt;</span>yourself<span class="op">@</span>somewhere.net<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb213-7" data-line-number="7">Description<span class="op">:</span><span class="st"> </span>More about what it <span class="kw">does</span> (maybe more than one line)</a>
+<a class="sourceLine" id="cb213-8" data-line-number="8">    Use four spaces when indenting paragraphs within the Description.</a>
+<a class="sourceLine" id="cb213-9" data-line-number="9">License<span class="op">:</span><span class="st"> </span>What license is it under?</a>
+<a class="sourceLine" id="cb213-10" data-line-number="10">Encoding<span class="op">:</span><span class="st"> </span>UTF<span class="dv">-8</span></a>
+<a class="sourceLine" id="cb213-11" data-line-number="11">LazyData<span class="op">:</span><span class="st"> </span>true</a></code></pre></div>
+</div>
+<div id="package-dependencies" class="section level2">
+<h2><span class="header-section-number">15.5</span> Package Dependencies</h2>
+<p>If your package uses functions from other packages then you must add these to the ‘DESCRIPTION’ file so that they are imported. For example this package will use functions form dplyr and tm (sepearted by commas):</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1">Package<span class="op">:</span><span class="st"> </span>kdpackage0</a>
+<a class="sourceLine" id="cb214-2" data-line-number="2">...</a>
+<a class="sourceLine" id="cb214-3" data-line-number="3">Imports<span class="op">:</span></a>
+<a class="sourceLine" id="cb214-4" data-line-number="4"><span class="st">        </span>dplyr,</a>
+<a class="sourceLine" id="cb214-5" data-line-number="5">        tm</a></code></pre></div>
+</div>
+<div id="build-the-package" class="section level2">
+<h2><span class="header-section-number">15.6</span> Build the package</h2>
+<p>In the menu, click Build &gt; Install &amp; Restart (or Build &amp; Reload).
+The pacakge should now be installed and available in your list of packages.</p>
+</div>
+<div id="making-changes" class="section level2">
+<h2><span class="header-section-number">15.7</span> Making changes</h2>
+<p>If you make chnages to your package functions or documentation, you will need to re-build it again.</p>
+<p><a href="http://web.mit.edu/insong/www/pdf/rpackage_instructions.pdf" class="uri">http://web.mit.edu/insong/www/pdf/rpackage_instructions.pdf</a>
+<a href="http://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html" class="uri">http://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html</a></p>
 
 </div>
 </div>
@@ -370,8 +381,8 @@ Parameters can be added after the <strong>params:</strong> option. They must hav
           </div>
         </div>
       </div>
-<a href="maps.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="machine-learning-predictive-analytics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="bookdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="git-version-control.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
