@@ -25,7 +25,7 @@
 <meta name="author" content="Kieran Driscoll">
 
 
-<meta name="date" content="2019-01-06">
+<meta name="date" content="2019-01-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -48,20 +48,26 @@
 
 
 <script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 <link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
 <script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
 <script src="libs/moment-2.8.4/moment.js"></script>
 <script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
 <script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
 <script src="libs/dygraphs-binding-1.1.1.4/dygraphs.js"></script>
-<link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-0.7.7/leaflet.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<link href="libs/leaflet-label-0.2.2/leaflet.label.css" rel="stylesheet" />
-<script src="libs/leaflet-label-0.2.2/leaflet.label.js"></script>
-<script src="libs/Proj4Leaflet-0.7.2/proj4-compressed.js"></script>
-<script src="libs/Proj4Leaflet-0.7.2/proj4leaflet.js"></script>
-<script src="libs/leaflet-binding-1.1.0/leaflet.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
 <script src="libs/d3-4.3.0/d3.min.js"></script>
 <script src="libs/d3-lasso-0.0.5/d3-lasso.min.js"></script>
 <link href="libs/ggiraph-0.3.0/styles.css" rel="stylesheet" />
@@ -153,13 +159,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> R User Notebook</a></li>
 <li class="chapter" data-level="2" data-path="basic-concepts.html"><a href="basic-concepts.html"><i class="fa fa-check"></i><b>2</b> Basic Concepts</a><ul>
 <li class="chapter" data-level="2.1" data-path="basic-concepts.html"><a href="basic-concepts.html#vectors"><i class="fa fa-check"></i><b>2.1</b> Vectors</a></li>
-<li class="chapter" data-level="2.2" data-path="basic-concepts.html"><a href="basic-concepts.html#lists"><i class="fa fa-check"></i><b>2.2</b> Lists</a></li>
-<li class="chapter" data-level="2.3" data-path="basic-concepts.html"><a href="basic-concepts.html#factors"><i class="fa fa-check"></i><b>2.3</b> Factors</a></li>
-<li class="chapter" data-level="2.4" data-path="basic-concepts.html"><a href="basic-concepts.html#dataframes"><i class="fa fa-check"></i><b>2.4</b> Dataframes</a></li>
-<li class="chapter" data-level="2.5" data-path="basic-concepts.html"><a href="basic-concepts.html#tibbles"><i class="fa fa-check"></i><b>2.5</b> Tibbles</a></li>
-<li class="chapter" data-level="2.6" data-path="basic-concepts.html"><a href="basic-concepts.html#extracting-data-from-dataframestibbles"><i class="fa fa-check"></i><b>2.6</b> Extracting data from Dataframes/Tibbles</a></li>
-<li class="chapter" data-level="2.7" data-path="basic-concepts.html"><a href="basic-concepts.html#dates"><i class="fa fa-check"></i><b>2.7</b> Dates</a></li>
-<li class="chapter" data-level="2.8" data-path="basic-concepts.html"><a href="basic-concepts.html#style-guide"><i class="fa fa-check"></i><b>2.8</b> Style Guide</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-concepts.html"><a href="basic-concepts.html#matrices"><i class="fa fa-check"></i><b>2.2</b> Matrices</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-concepts.html"><a href="basic-concepts.html#dataframes"><i class="fa fa-check"></i><b>2.3</b> Dataframes</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-concepts.html"><a href="basic-concepts.html#tibbles"><i class="fa fa-check"></i><b>2.4</b> Tibbles</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-concepts.html"><a href="basic-concepts.html#extracting-data-from-dataframestibbles"><i class="fa fa-check"></i><b>2.5</b> Extracting data from Dataframes/Tibbles</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-concepts.html"><a href="basic-concepts.html#lists"><i class="fa fa-check"></i><b>2.6</b> Lists</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-concepts.html"><a href="basic-concepts.html#factors"><i class="fa fa-check"></i><b>2.7</b> Factors</a></li>
+<li class="chapter" data-level="2.8" data-path="basic-concepts.html"><a href="basic-concepts.html#dates"><i class="fa fa-check"></i><b>2.8</b> Dates</a></li>
+<li class="chapter" data-level="2.9" data-path="basic-concepts.html"><a href="basic-concepts.html#style-guide"><i class="fa fa-check"></i><b>2.9</b> Style Guide</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="importing-exporting.html"><a href="importing-exporting.html"><i class="fa fa-check"></i><b>3</b> Importing &amp; Exporting</a><ul>
 <li class="chapter" data-level="3.1" data-path="importing-exporting.html"><a href="importing-exporting.html#importing-with-base-r"><i class="fa fa-check"></i><b>3.1</b> Importing with Base R</a></li>
@@ -176,13 +183,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.2" data-path="importing-exporting.html"><a href="importing-exporting.html#write-to-an-csv-file"><i class="fa fa-check"></i><b>3.3.2</b> Write to an CSV file</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="manipultaing-data.html"><a href="manipultaing-data.html"><i class="fa fa-check"></i><b>4</b> Manipultaing data</a><ul>
-<li class="chapter" data-level="4.1" data-path="manipultaing-data.html"><a href="manipultaing-data.html#basic-data-wrangling"><i class="fa fa-check"></i><b>4.1</b> Basic data wrangling:</a></li>
-<li class="chapter" data-level="4.2" data-path="manipultaing-data.html"><a href="manipultaing-data.html#summary-statistics"><i class="fa fa-check"></i><b>4.2</b> Summary statistics:</a></li>
-<li class="chapter" data-level="4.3" data-path="manipultaing-data.html"><a href="manipultaing-data.html#conditional-statements"><i class="fa fa-check"></i><b>4.3</b> Conditional statements</a></li>
-<li class="chapter" data-level="4.4" data-path="manipultaing-data.html"><a href="manipultaing-data.html#appending-joins"><i class="fa fa-check"></i><b>4.4</b> Appending &amp; Joins:</a></li>
-<li class="chapter" data-level="4.5" data-path="manipultaing-data.html"><a href="manipultaing-data.html#tidyr-tidy-data"><i class="fa fa-check"></i><b>4.5</b> tidyr &amp; tidy data</a></li>
-<li class="chapter" data-level="4.6" data-path="manipultaing-data.html"><a href="manipultaing-data.html#tibbles-1"><i class="fa fa-check"></i><b>4.6</b> tibbles</a></li>
+<li class="chapter" data-level="4" data-path="manipulating-data.html"><a href="manipulating-data.html"><i class="fa fa-check"></i><b>4</b> Manipulating data</a><ul>
+<li class="chapter" data-level="4.1" data-path="manipulating-data.html"><a href="manipulating-data.html#basic-data-wrangling"><i class="fa fa-check"></i><b>4.1</b> Basic data wrangling</a></li>
+<li class="chapter" data-level="4.2" data-path="manipulating-data.html"><a href="manipulating-data.html#summary-statistics"><i class="fa fa-check"></i><b>4.2</b> Summary statistics</a></li>
+<li class="chapter" data-level="4.3" data-path="manipulating-data.html"><a href="manipulating-data.html#conditional-statements"><i class="fa fa-check"></i><b>4.3</b> Conditional statements</a></li>
+<li class="chapter" data-level="4.4" data-path="manipulating-data.html"><a href="manipulating-data.html#appending-columns-and-rows"><i class="fa fa-check"></i><b>4.4</b> Appending columns and rows</a></li>
+<li class="chapter" data-level="4.5" data-path="manipulating-data.html"><a href="manipulating-data.html#joins"><i class="fa fa-check"></i><b>4.5</b> Joins</a></li>
+<li class="chapter" data-level="4.6" data-path="manipulating-data.html"><a href="manipulating-data.html#tidy-data"><i class="fa fa-check"></i><b>4.6</b> Tidy Data</a></li>
+<li class="chapter" data-level="4.7" data-path="manipulating-data.html"><a href="manipulating-data.html#tibbles-1"><i class="fa fa-check"></i><b>4.7</b> tibbles</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>5</b> Functions</a><ul>
 <li class="chapter" data-level="5.1" data-path="functions.html"><a href="functions.html#function-basics---an-example-using-str"><i class="fa fa-check"></i><b>5.1</b> Function Basics - an example using str()</a></li>
@@ -201,14 +209,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.7" data-path="functions.html"><a href="functions.html#chainingpiping"><i class="fa fa-check"></i><b>5.7</b> Chaining/Piping</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>6</b> Loops</a><ul>
-<li class="chapter" data-level="6.1" data-path="loops.html"><a href="loops.html#basic-loop-structure"><i class="fa fa-check"></i><b>6.1</b> Basic Loop structure:</a></li>
-<li class="chapter" data-level="6.2" data-path="loops.html"><a href="loops.html#looping-with-vectors"><i class="fa fa-check"></i><b>6.2</b> Looping with vectors</a></li>
+<li class="chapter" data-level="6.1" data-path="loops.html"><a href="loops.html#basic-for-loop-structure"><i class="fa fa-check"></i><b>6.1</b> Basic for Loop structure</a></li>
+<li class="chapter" data-level="6.2" data-path="loops.html"><a href="loops.html#looping-through-a-vector"><i class="fa fa-check"></i><b>6.2</b> Looping through a vector</a></li>
 <li class="chapter" data-level="6.3" data-path="loops.html"><a href="loops.html#creating-a-list-in-a-loop"><i class="fa fa-check"></i><b>6.3</b> Creating a List in a Loop</a></li>
+<li class="chapter" data-level="6.4" data-path="loops.html"><a href="loops.html#looping-with-apply-functions"><i class="fa fa-check"></i><b>6.4</b> Looping with apply functions</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>7</b> Tables</a><ul>
 <li class="chapter" data-level="7.1" data-path="tables.html"><a href="tables.html#static-html-table---htmltable"><i class="fa fa-check"></i><b>7.1</b> Static HTML table - htmlTable</a></li>
-<li class="chapter" data-level="7.2" data-path="tables.html"><a href="tables.html#intearctive-html-table---dt"><i class="fa fa-check"></i><b>7.2</b> Intearctive HTML table - DT</a></li>
-<li class="chapter" data-level="7.3" data-path="tables.html"><a href="tables.html#complex-tabulations"><i class="fa fa-check"></i><b>7.3</b> Complex Tabulations</a></li>
+<li class="chapter" data-level="7.2" data-path="tables.html"><a href="tables.html#interactive-html-table---dt"><i class="fa fa-check"></i><b>7.2</b> Interactive HTML table - DT</a></li>
+<li class="chapter" data-level="7.3" data-path="tables.html"><a href="tables.html#cross-tabulations"><i class="fa fa-check"></i><b>7.3</b> Cross-Tabulations</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="charts.html"><a href="charts.html"><i class="fa fa-check"></i><b>8</b> Charts</a><ul>
 <li class="chapter" data-level="8.0.1" data-path="charts.html"><a href="charts.html#static-charts-with-ggplot2"><i class="fa fa-check"></i><b>8.0.1</b> Static charts with ggplot2</a></li>
@@ -311,41 +320,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Lets you present tables and charts that will react to inputs.</p>
 <div id="basic-shiny-structure" class="section level2">
 <h2><span class="header-section-number">13.1</span> Basic Shiny Structure</h2>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1"><span class="kw">library</span>(shiny)</a>
-<a class="sourceLine" id="cb204-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb204-3" data-line-number="3">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</a>
-<a class="sourceLine" id="cb204-4" data-line-number="4">        <span class="kw">titlePanel</span>(<span class="st">&quot;Hello Shiny!&quot;</span>)</a>
-<a class="sourceLine" id="cb204-5" data-line-number="5">      )</a>
-<a class="sourceLine" id="cb204-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb204-7" data-line-number="7">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
-<a class="sourceLine" id="cb204-8" data-line-number="8">}</a>
-<a class="sourceLine" id="cb204-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb204-10" data-line-number="10"><span class="kw">shinyApp</span>(ui, server)</a></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1"><span class="kw">library</span>(shiny)</a>
+<a class="sourceLine" id="cb222-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb222-3" data-line-number="3">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</a>
+<a class="sourceLine" id="cb222-4" data-line-number="4">        <span class="kw">titlePanel</span>(<span class="st">&quot;Hello Shiny!&quot;</span>)</a>
+<a class="sourceLine" id="cb222-5" data-line-number="5">      )</a>
+<a class="sourceLine" id="cb222-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb222-7" data-line-number="7">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
+<a class="sourceLine" id="cb222-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb222-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb222-10" data-line-number="10"><span class="kw">shinyApp</span>(ui, server)</a></code></pre></div>
 </div>
 <div id="user-interface" class="section level2">
 <h2><span class="header-section-number">13.2</span> User Interface</h2>
 <div id="layout" class="section level3">
 <h3><span class="header-section-number">13.2.1</span> Layout</h3>
 <p>Various layouts can be used however the most common is a <em>fluid layout</em>. The page can be divided into rows and columns. Fixed text and styling can also be added.</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1"><span class="kw">library</span>(shiny)</a>
-<a class="sourceLine" id="cb205-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb205-3" data-line-number="3">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</a>
-<a class="sourceLine" id="cb205-4" data-line-number="4">          <span class="kw">fluidRow</span>(</a>
-<a class="sourceLine" id="cb205-5" data-line-number="5">             <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>, <span class="st">&quot;row1 column1&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;background-color:red;&quot;</span>),</a>
-<a class="sourceLine" id="cb205-6" data-line-number="6">             <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>, <span class="st">&quot;row1 column2&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;background-color:orange;&quot;</span>),</a>
-<a class="sourceLine" id="cb205-7" data-line-number="7">             <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>, <span class="st">&quot;row1 column3&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;background-color:yellow;&quot;</span>)</a>
-<a class="sourceLine" id="cb205-8" data-line-number="8">          ),  </a>
-<a class="sourceLine" id="cb205-9" data-line-number="9">          <span class="kw">fluidRow</span>(</a>
-<a class="sourceLine" id="cb205-10" data-line-number="10">             <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>, <span class="st">&quot;row2 column1&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;background-color:green;&quot;</span>),</a>
-<a class="sourceLine" id="cb205-11" data-line-number="11">             <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>, <span class="st">&quot;row2 column2&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;background-color:blue;&quot;</span>),</a>
-<a class="sourceLine" id="cb205-12" data-line-number="12">             <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>, <span class="st">&quot;row2 column3&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;background-color:purple;&quot;</span>)</a>
-<a class="sourceLine" id="cb205-13" data-line-number="13">          )</a>
-<a class="sourceLine" id="cb205-14" data-line-number="14">      )</a>
-<a class="sourceLine" id="cb205-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb205-16" data-line-number="16">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
-<a class="sourceLine" id="cb205-17" data-line-number="17">}</a>
-<a class="sourceLine" id="cb205-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb205-19" data-line-number="19"><span class="kw">shinyApp</span>(ui, server)</a></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1"><span class="kw">library</span>(shiny)</a>
+<a class="sourceLine" id="cb223-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb223-3" data-line-number="3">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</a>
+<a class="sourceLine" id="cb223-4" data-line-number="4">          <span class="kw">fluidRow</span>(</a>
+<a class="sourceLine" id="cb223-5" data-line-number="5">             <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>, <span class="st">&quot;row1 column1&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;background-color:red;&quot;</span>),</a>
+<a class="sourceLine" id="cb223-6" data-line-number="6">             <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>, <span class="st">&quot;row1 column2&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;background-color:orange;&quot;</span>),</a>
+<a class="sourceLine" id="cb223-7" data-line-number="7">             <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>, <span class="st">&quot;row1 column3&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;background-color:yellow;&quot;</span>)</a>
+<a class="sourceLine" id="cb223-8" data-line-number="8">          ),  </a>
+<a class="sourceLine" id="cb223-9" data-line-number="9">          <span class="kw">fluidRow</span>(</a>
+<a class="sourceLine" id="cb223-10" data-line-number="10">             <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>, <span class="st">&quot;row2 column1&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;background-color:green;&quot;</span>),</a>
+<a class="sourceLine" id="cb223-11" data-line-number="11">             <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>, <span class="st">&quot;row2 column2&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;background-color:blue;&quot;</span>),</a>
+<a class="sourceLine" id="cb223-12" data-line-number="12">             <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>, <span class="st">&quot;row2 column3&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;background-color:purple;&quot;</span>)</a>
+<a class="sourceLine" id="cb223-13" data-line-number="13">          )</a>
+<a class="sourceLine" id="cb223-14" data-line-number="14">      )</a>
+<a class="sourceLine" id="cb223-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb223-16" data-line-number="16">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
+<a class="sourceLine" id="cb223-17" data-line-number="17">}</a>
+<a class="sourceLine" id="cb223-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb223-19" data-line-number="19"><span class="kw">shinyApp</span>(ui, server)</a></code></pre></div>
 </div>
 <div id="inputs" class="section level3">
 <h3><span class="header-section-number">13.2.2</span> Inputs</h3>
@@ -357,24 +366,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 * actionButton() # Adds an action button
 * dateRangeInput() # Adds a date selector
 The first argument of all the inputs/ouputs is a unique id.</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</a>
-<a class="sourceLine" id="cb206-2" data-line-number="2">        <span class="kw">fluidRow</span>(</a>
-<a class="sourceLine" id="cb206-3" data-line-number="3">          <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>,</a>
-<a class="sourceLine" id="cb206-4" data-line-number="4">                 <span class="kw">sliderInput</span>(<span class="st">&quot;slider&quot;</span>, <span class="st">&quot;Generate n randoms&quot;</span>, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">1000</span>, <span class="dt">value =</span> <span class="dv">500</span>, <span class="dt">step =</span> <span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb206-5" data-line-number="5">                 ),</a>
-<a class="sourceLine" id="cb206-6" data-line-number="6">          <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>,</a>
-<a class="sourceLine" id="cb206-7" data-line-number="7">                 <span class="kw">fileInput</span>(<span class="st">&quot;loadfile&quot;</span>, <span class="st">&quot;Choose file&quot;</span>)),</a>
-<a class="sourceLine" id="cb206-8" data-line-number="8">          <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>,</a>
-<a class="sourceLine" id="cb206-9" data-line-number="9">                 <span class="kw">selectInput</span>(<span class="st">&quot;dropdown&quot;</span>, <span class="st">&quot;Select an option&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;Rare&quot;</span> =<span class="st"> &quot;1&quot;</span>,</a>
-<a class="sourceLine" id="cb206-10" data-line-number="10">                                                               <span class="st">&quot;Medium&quot;</span> =<span class="st"> &quot;2&quot;</span>,</a>
-<a class="sourceLine" id="cb206-11" data-line-number="11">                                                               <span class="st">&quot;Well Done&quot;</span> =<span class="st"> &quot;3&quot;</span>)))</a>
-<a class="sourceLine" id="cb206-12" data-line-number="12">        )</a>
-<a class="sourceLine" id="cb206-13" data-line-number="13">)</a>
-<a class="sourceLine" id="cb206-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb206-15" data-line-number="15">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
-<a class="sourceLine" id="cb206-16" data-line-number="16">}</a>
-<a class="sourceLine" id="cb206-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb206-18" data-line-number="18"><span class="kw">shinyApp</span>(ui, server)</a></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</a>
+<a class="sourceLine" id="cb224-2" data-line-number="2">        <span class="kw">fluidRow</span>(</a>
+<a class="sourceLine" id="cb224-3" data-line-number="3">          <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb224-4" data-line-number="4">                 <span class="kw">sliderInput</span>(<span class="st">&quot;slider&quot;</span>, <span class="st">&quot;Generate n randoms&quot;</span>, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">1000</span>, <span class="dt">value =</span> <span class="dv">500</span>, <span class="dt">step =</span> <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb224-5" data-line-number="5">                 ),</a>
+<a class="sourceLine" id="cb224-6" data-line-number="6">          <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb224-7" data-line-number="7">                 <span class="kw">fileInput</span>(<span class="st">&quot;loadfile&quot;</span>, <span class="st">&quot;Choose file&quot;</span>)),</a>
+<a class="sourceLine" id="cb224-8" data-line-number="8">          <span class="kw">column</span>(<span class="dt">width=</span><span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb224-9" data-line-number="9">                 <span class="kw">selectInput</span>(<span class="st">&quot;dropdown&quot;</span>, <span class="st">&quot;Select an option&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;Rare&quot;</span> =<span class="st"> &quot;1&quot;</span>,</a>
+<a class="sourceLine" id="cb224-10" data-line-number="10">                                                               <span class="st">&quot;Medium&quot;</span> =<span class="st"> &quot;2&quot;</span>,</a>
+<a class="sourceLine" id="cb224-11" data-line-number="11">                                                               <span class="st">&quot;Well Done&quot;</span> =<span class="st"> &quot;3&quot;</span>)))</a>
+<a class="sourceLine" id="cb224-12" data-line-number="12">        )</a>
+<a class="sourceLine" id="cb224-13" data-line-number="13">)</a>
+<a class="sourceLine" id="cb224-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb224-15" data-line-number="15">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
+<a class="sourceLine" id="cb224-16" data-line-number="16">}</a>
+<a class="sourceLine" id="cb224-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb224-18" data-line-number="18"><span class="kw">shinyApp</span>(ui, server)</a></code></pre></div>
 </div>
 <div id="outputs" class="section level3">
 <h3><span class="header-section-number">13.2.3</span> Outputs</h3>
@@ -383,18 +392,18 @@ The first argument of all the inputs/ouputs is a unique id.</p>
 * tableOutput() # Adds space for a table
 * plotOutput() # Adds space for a chart</p>
 <p>Nb. these will be empty until a function is added to the server that adds content.</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</a>
-<a class="sourceLine" id="cb207-2" data-line-number="2">        <span class="kw">fluidRow</span>(</a>
-<a class="sourceLine" id="cb207-3" data-line-number="3">          <span class="kw">htmlOutput</span>(<span class="st">&quot;text1&quot;</span>, <span class="dt">width=</span><span class="st">&quot;75%&quot;</span>, <span class="dt">height=</span><span class="st">&quot;50px&quot;</span>),</a>
-<a class="sourceLine" id="cb207-4" data-line-number="4">          <span class="kw">tableOutput</span>(<span class="st">&quot;table1&quot;</span>),</a>
-<a class="sourceLine" id="cb207-5" data-line-number="5">          <span class="kw">plotOutput</span>(<span class="st">&quot;chart1&quot;</span>, <span class="dt">width=</span><span class="st">&quot;75%&quot;</span>, <span class="dt">height=</span><span class="st">&quot;100px&quot;</span>)</a>
-<a class="sourceLine" id="cb207-6" data-line-number="6">        )  </a>
-<a class="sourceLine" id="cb207-7" data-line-number="7">)</a>
-<a class="sourceLine" id="cb207-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb207-9" data-line-number="9">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
-<a class="sourceLine" id="cb207-10" data-line-number="10">}</a>
-<a class="sourceLine" id="cb207-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb207-12" data-line-number="12"><span class="kw">shinyApp</span>(ui, server)</a></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</a>
+<a class="sourceLine" id="cb225-2" data-line-number="2">        <span class="kw">fluidRow</span>(</a>
+<a class="sourceLine" id="cb225-3" data-line-number="3">          <span class="kw">htmlOutput</span>(<span class="st">&quot;text1&quot;</span>, <span class="dt">width=</span><span class="st">&quot;75%&quot;</span>, <span class="dt">height=</span><span class="st">&quot;50px&quot;</span>),</a>
+<a class="sourceLine" id="cb225-4" data-line-number="4">          <span class="kw">tableOutput</span>(<span class="st">&quot;table1&quot;</span>),</a>
+<a class="sourceLine" id="cb225-5" data-line-number="5">          <span class="kw">plotOutput</span>(<span class="st">&quot;chart1&quot;</span>, <span class="dt">width=</span><span class="st">&quot;75%&quot;</span>, <span class="dt">height=</span><span class="st">&quot;100px&quot;</span>)</a>
+<a class="sourceLine" id="cb225-6" data-line-number="6">        )  </a>
+<a class="sourceLine" id="cb225-7" data-line-number="7">)</a>
+<a class="sourceLine" id="cb225-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb225-9" data-line-number="9">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
+<a class="sourceLine" id="cb225-10" data-line-number="10">}</a>
+<a class="sourceLine" id="cb225-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb225-12" data-line-number="12"><span class="kw">shinyApp</span>(ui, server)</a></code></pre></div>
 <p>Other packages extend shiny ui outputs.
 * plotlyOutput # Adds space for a plotly chart [plotly]
 * ggiraphOutput # Adds space for a ggiraph chart [ggiraph]
@@ -413,20 +422,20 @@ The first argument of all the inputs/ouputs is a unique id.</p>
 <li>renderDataTable() # creates reactive DT output
 The UI output id and the server output name must match.</li>
 </ul>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</a>
-<a class="sourceLine" id="cb208-2" data-line-number="2">        <span class="kw">fluidRow</span>(</a>
-<a class="sourceLine" id="cb208-3" data-line-number="3">          <span class="kw">plotOutput</span>(<span class="st">&quot;chart1&quot;</span>)</a>
-<a class="sourceLine" id="cb208-4" data-line-number="4">        )  </a>
-<a class="sourceLine" id="cb208-5" data-line-number="5">)</a>
-<a class="sourceLine" id="cb208-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb208-7" data-line-number="7">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
-<a class="sourceLine" id="cb208-8" data-line-number="8">  <span class="co"># This output links to the ui plotOutput via the id &quot;chart1&quot;</span></a>
-<a class="sourceLine" id="cb208-9" data-line-number="9">  output<span class="op">$</span>chart1 &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({</a>
-<a class="sourceLine" id="cb208-10" data-line-number="10">    <span class="kw">plot</span>(mtcars<span class="op">$</span>wt, mtcars<span class="op">$</span>mpg)</a>
-<a class="sourceLine" id="cb208-11" data-line-number="11">  })</a>
-<a class="sourceLine" id="cb208-12" data-line-number="12">}</a>
-<a class="sourceLine" id="cb208-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb208-14" data-line-number="14"><span class="kw">shinyApp</span>(ui, server)</a></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</a>
+<a class="sourceLine" id="cb226-2" data-line-number="2">        <span class="kw">fluidRow</span>(</a>
+<a class="sourceLine" id="cb226-3" data-line-number="3">          <span class="kw">plotOutput</span>(<span class="st">&quot;chart1&quot;</span>)</a>
+<a class="sourceLine" id="cb226-4" data-line-number="4">        )  </a>
+<a class="sourceLine" id="cb226-5" data-line-number="5">)</a>
+<a class="sourceLine" id="cb226-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb226-7" data-line-number="7">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
+<a class="sourceLine" id="cb226-8" data-line-number="8">  <span class="co"># This output links to the ui plotOutput via the id &quot;chart1&quot;</span></a>
+<a class="sourceLine" id="cb226-9" data-line-number="9">  output<span class="op">$</span>chart1 &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({</a>
+<a class="sourceLine" id="cb226-10" data-line-number="10">    <span class="kw">plot</span>(mtcars<span class="op">$</span>wt, mtcars<span class="op">$</span>mpg)</a>
+<a class="sourceLine" id="cb226-11" data-line-number="11">  })</a>
+<a class="sourceLine" id="cb226-12" data-line-number="12">}</a>
+<a class="sourceLine" id="cb226-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb226-14" data-line-number="14"><span class="kw">shinyApp</span>(ui, server)</a></code></pre></div>
 <p>Other packages extend shiny server outputs.
 * renderPlotly # creates reactive plotly chart [plotly]
 * renderggiraph # creates reactive ggiraph chart [ggiraph]</p>
@@ -434,25 +443,25 @@ The UI output id and the server output name must match.</li>
 <div id="linking-to-ui-inputs" class="section level3">
 <h3><span class="header-section-number">13.3.2</span> Linking to UI inputs</h3>
 <p>The UI input id and the server input name must match.</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</a>
-<a class="sourceLine" id="cb209-2" data-line-number="2">  <span class="kw">fluidRow</span>(</a>
-<a class="sourceLine" id="cb209-3" data-line-number="3">    <span class="kw">selectInput</span>(<span class="st">&quot;dropdown&quot;</span>, <span class="st">&quot;Select an option&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;Weight&quot;</span> =<span class="st"> &quot;wt&quot;</span>,</a>
-<a class="sourceLine" id="cb209-4" data-line-number="4">                                                  <span class="st">&quot;Horespower&quot;</span> =<span class="st"> &quot;hp&quot;</span>,</a>
-<a class="sourceLine" id="cb209-5" data-line-number="5">                                                  <span class="st">&quot;Cylinders&quot;</span> =<span class="st"> &quot;cyl&quot;</span>))</a>
-<a class="sourceLine" id="cb209-6" data-line-number="6">  ),</a>
-<a class="sourceLine" id="cb209-7" data-line-number="7">  <span class="kw">fluidRow</span>(</a>
-<a class="sourceLine" id="cb209-8" data-line-number="8">    <span class="kw">plotOutput</span>(<span class="st">&quot;chart1&quot;</span>)</a>
-<a class="sourceLine" id="cb209-9" data-line-number="9">  ) </a>
-<a class="sourceLine" id="cb209-10" data-line-number="10">)</a>
-<a class="sourceLine" id="cb209-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb209-12" data-line-number="12">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
-<a class="sourceLine" id="cb209-13" data-line-number="13">  <span class="co"># This output links to the ui plotOutput via the id &quot;chart1&quot;</span></a>
-<a class="sourceLine" id="cb209-14" data-line-number="14">  output<span class="op">$</span>chart1 &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({</a>
-<a class="sourceLine" id="cb209-15" data-line-number="15">    <span class="kw">plot</span>(mtcars[[input<span class="op">$</span>dropdown]], mtcars<span class="op">$</span>mpg)</a>
-<a class="sourceLine" id="cb209-16" data-line-number="16">  })</a>
-<a class="sourceLine" id="cb209-17" data-line-number="17">}</a>
-<a class="sourceLine" id="cb209-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb209-19" data-line-number="19"><span class="kw">shinyApp</span>(ui, server)</a></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</a>
+<a class="sourceLine" id="cb227-2" data-line-number="2">  <span class="kw">fluidRow</span>(</a>
+<a class="sourceLine" id="cb227-3" data-line-number="3">    <span class="kw">selectInput</span>(<span class="st">&quot;dropdown&quot;</span>, <span class="st">&quot;Select an option&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;Weight&quot;</span> =<span class="st"> &quot;wt&quot;</span>,</a>
+<a class="sourceLine" id="cb227-4" data-line-number="4">                                                  <span class="st">&quot;Horespower&quot;</span> =<span class="st"> &quot;hp&quot;</span>,</a>
+<a class="sourceLine" id="cb227-5" data-line-number="5">                                                  <span class="st">&quot;Cylinders&quot;</span> =<span class="st"> &quot;cyl&quot;</span>))</a>
+<a class="sourceLine" id="cb227-6" data-line-number="6">  ),</a>
+<a class="sourceLine" id="cb227-7" data-line-number="7">  <span class="kw">fluidRow</span>(</a>
+<a class="sourceLine" id="cb227-8" data-line-number="8">    <span class="kw">plotOutput</span>(<span class="st">&quot;chart1&quot;</span>)</a>
+<a class="sourceLine" id="cb227-9" data-line-number="9">  ) </a>
+<a class="sourceLine" id="cb227-10" data-line-number="10">)</a>
+<a class="sourceLine" id="cb227-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb227-12" data-line-number="12">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
+<a class="sourceLine" id="cb227-13" data-line-number="13">  <span class="co"># This output links to the ui plotOutput via the id &quot;chart1&quot;</span></a>
+<a class="sourceLine" id="cb227-14" data-line-number="14">  output<span class="op">$</span>chart1 &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({</a>
+<a class="sourceLine" id="cb227-15" data-line-number="15">    <span class="kw">plot</span>(mtcars[[input<span class="op">$</span>dropdown]], mtcars<span class="op">$</span>mpg)</a>
+<a class="sourceLine" id="cb227-16" data-line-number="16">  })</a>
+<a class="sourceLine" id="cb227-17" data-line-number="17">}</a>
+<a class="sourceLine" id="cb227-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb227-19" data-line-number="19"><span class="kw">shinyApp</span>(ui, server)</a></code></pre></div>
 </div>
 </div>
 <div id="shiny-dashboard" class="section level2">

@@ -25,7 +25,7 @@
 <meta name="author" content="Kieran Driscoll">
 
 
-<meta name="date" content="2019-01-06">
+<meta name="date" content="2019-01-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -48,20 +48,26 @@
 
 
 <script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 <link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
 <script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
 <script src="libs/moment-2.8.4/moment.js"></script>
 <script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
 <script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
 <script src="libs/dygraphs-binding-1.1.1.4/dygraphs.js"></script>
-<link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-0.7.7/leaflet.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<link href="libs/leaflet-label-0.2.2/leaflet.label.css" rel="stylesheet" />
-<script src="libs/leaflet-label-0.2.2/leaflet.label.js"></script>
-<script src="libs/Proj4Leaflet-0.7.2/proj4-compressed.js"></script>
-<script src="libs/Proj4Leaflet-0.7.2/proj4leaflet.js"></script>
-<script src="libs/leaflet-binding-1.1.0/leaflet.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
 <script src="libs/d3-4.3.0/d3.min.js"></script>
 <script src="libs/d3-lasso-0.0.5/d3-lasso.min.js"></script>
 <link href="libs/ggiraph-0.3.0/styles.css" rel="stylesheet" />
@@ -153,13 +159,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> R User Notebook</a></li>
 <li class="chapter" data-level="2" data-path="basic-concepts.html"><a href="basic-concepts.html"><i class="fa fa-check"></i><b>2</b> Basic Concepts</a><ul>
 <li class="chapter" data-level="2.1" data-path="basic-concepts.html"><a href="basic-concepts.html#vectors"><i class="fa fa-check"></i><b>2.1</b> Vectors</a></li>
-<li class="chapter" data-level="2.2" data-path="basic-concepts.html"><a href="basic-concepts.html#lists"><i class="fa fa-check"></i><b>2.2</b> Lists</a></li>
-<li class="chapter" data-level="2.3" data-path="basic-concepts.html"><a href="basic-concepts.html#factors"><i class="fa fa-check"></i><b>2.3</b> Factors</a></li>
-<li class="chapter" data-level="2.4" data-path="basic-concepts.html"><a href="basic-concepts.html#dataframes"><i class="fa fa-check"></i><b>2.4</b> Dataframes</a></li>
-<li class="chapter" data-level="2.5" data-path="basic-concepts.html"><a href="basic-concepts.html#tibbles"><i class="fa fa-check"></i><b>2.5</b> Tibbles</a></li>
-<li class="chapter" data-level="2.6" data-path="basic-concepts.html"><a href="basic-concepts.html#extracting-data-from-dataframestibbles"><i class="fa fa-check"></i><b>2.6</b> Extracting data from Dataframes/Tibbles</a></li>
-<li class="chapter" data-level="2.7" data-path="basic-concepts.html"><a href="basic-concepts.html#dates"><i class="fa fa-check"></i><b>2.7</b> Dates</a></li>
-<li class="chapter" data-level="2.8" data-path="basic-concepts.html"><a href="basic-concepts.html#style-guide"><i class="fa fa-check"></i><b>2.8</b> Style Guide</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-concepts.html"><a href="basic-concepts.html#matrices"><i class="fa fa-check"></i><b>2.2</b> Matrices</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-concepts.html"><a href="basic-concepts.html#dataframes"><i class="fa fa-check"></i><b>2.3</b> Dataframes</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-concepts.html"><a href="basic-concepts.html#tibbles"><i class="fa fa-check"></i><b>2.4</b> Tibbles</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-concepts.html"><a href="basic-concepts.html#extracting-data-from-dataframestibbles"><i class="fa fa-check"></i><b>2.5</b> Extracting data from Dataframes/Tibbles</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-concepts.html"><a href="basic-concepts.html#lists"><i class="fa fa-check"></i><b>2.6</b> Lists</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-concepts.html"><a href="basic-concepts.html#factors"><i class="fa fa-check"></i><b>2.7</b> Factors</a></li>
+<li class="chapter" data-level="2.8" data-path="basic-concepts.html"><a href="basic-concepts.html#dates"><i class="fa fa-check"></i><b>2.8</b> Dates</a></li>
+<li class="chapter" data-level="2.9" data-path="basic-concepts.html"><a href="basic-concepts.html#style-guide"><i class="fa fa-check"></i><b>2.9</b> Style Guide</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="importing-exporting.html"><a href="importing-exporting.html"><i class="fa fa-check"></i><b>3</b> Importing &amp; Exporting</a><ul>
 <li class="chapter" data-level="3.1" data-path="importing-exporting.html"><a href="importing-exporting.html#importing-with-base-r"><i class="fa fa-check"></i><b>3.1</b> Importing with Base R</a></li>
@@ -176,13 +183,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.2" data-path="importing-exporting.html"><a href="importing-exporting.html#write-to-an-csv-file"><i class="fa fa-check"></i><b>3.3.2</b> Write to an CSV file</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="manipultaing-data.html"><a href="manipultaing-data.html"><i class="fa fa-check"></i><b>4</b> Manipultaing data</a><ul>
-<li class="chapter" data-level="4.1" data-path="manipultaing-data.html"><a href="manipultaing-data.html#basic-data-wrangling"><i class="fa fa-check"></i><b>4.1</b> Basic data wrangling:</a></li>
-<li class="chapter" data-level="4.2" data-path="manipultaing-data.html"><a href="manipultaing-data.html#summary-statistics"><i class="fa fa-check"></i><b>4.2</b> Summary statistics:</a></li>
-<li class="chapter" data-level="4.3" data-path="manipultaing-data.html"><a href="manipultaing-data.html#conditional-statements"><i class="fa fa-check"></i><b>4.3</b> Conditional statements</a></li>
-<li class="chapter" data-level="4.4" data-path="manipultaing-data.html"><a href="manipultaing-data.html#appending-joins"><i class="fa fa-check"></i><b>4.4</b> Appending &amp; Joins:</a></li>
-<li class="chapter" data-level="4.5" data-path="manipultaing-data.html"><a href="manipultaing-data.html#tidyr-tidy-data"><i class="fa fa-check"></i><b>4.5</b> tidyr &amp; tidy data</a></li>
-<li class="chapter" data-level="4.6" data-path="manipultaing-data.html"><a href="manipultaing-data.html#tibbles-1"><i class="fa fa-check"></i><b>4.6</b> tibbles</a></li>
+<li class="chapter" data-level="4" data-path="manipulating-data.html"><a href="manipulating-data.html"><i class="fa fa-check"></i><b>4</b> Manipulating data</a><ul>
+<li class="chapter" data-level="4.1" data-path="manipulating-data.html"><a href="manipulating-data.html#basic-data-wrangling"><i class="fa fa-check"></i><b>4.1</b> Basic data wrangling</a></li>
+<li class="chapter" data-level="4.2" data-path="manipulating-data.html"><a href="manipulating-data.html#summary-statistics"><i class="fa fa-check"></i><b>4.2</b> Summary statistics</a></li>
+<li class="chapter" data-level="4.3" data-path="manipulating-data.html"><a href="manipulating-data.html#conditional-statements"><i class="fa fa-check"></i><b>4.3</b> Conditional statements</a></li>
+<li class="chapter" data-level="4.4" data-path="manipulating-data.html"><a href="manipulating-data.html#appending-columns-and-rows"><i class="fa fa-check"></i><b>4.4</b> Appending columns and rows</a></li>
+<li class="chapter" data-level="4.5" data-path="manipulating-data.html"><a href="manipulating-data.html#joins"><i class="fa fa-check"></i><b>4.5</b> Joins</a></li>
+<li class="chapter" data-level="4.6" data-path="manipulating-data.html"><a href="manipulating-data.html#tidy-data"><i class="fa fa-check"></i><b>4.6</b> Tidy Data</a></li>
+<li class="chapter" data-level="4.7" data-path="manipulating-data.html"><a href="manipulating-data.html#tibbles-1"><i class="fa fa-check"></i><b>4.7</b> tibbles</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>5</b> Functions</a><ul>
 <li class="chapter" data-level="5.1" data-path="functions.html"><a href="functions.html#function-basics---an-example-using-str"><i class="fa fa-check"></i><b>5.1</b> Function Basics - an example using str()</a></li>
@@ -201,14 +209,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.7" data-path="functions.html"><a href="functions.html#chainingpiping"><i class="fa fa-check"></i><b>5.7</b> Chaining/Piping</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>6</b> Loops</a><ul>
-<li class="chapter" data-level="6.1" data-path="loops.html"><a href="loops.html#basic-loop-structure"><i class="fa fa-check"></i><b>6.1</b> Basic Loop structure:</a></li>
-<li class="chapter" data-level="6.2" data-path="loops.html"><a href="loops.html#looping-with-vectors"><i class="fa fa-check"></i><b>6.2</b> Looping with vectors</a></li>
+<li class="chapter" data-level="6.1" data-path="loops.html"><a href="loops.html#basic-for-loop-structure"><i class="fa fa-check"></i><b>6.1</b> Basic for Loop structure</a></li>
+<li class="chapter" data-level="6.2" data-path="loops.html"><a href="loops.html#looping-through-a-vector"><i class="fa fa-check"></i><b>6.2</b> Looping through a vector</a></li>
 <li class="chapter" data-level="6.3" data-path="loops.html"><a href="loops.html#creating-a-list-in-a-loop"><i class="fa fa-check"></i><b>6.3</b> Creating a List in a Loop</a></li>
+<li class="chapter" data-level="6.4" data-path="loops.html"><a href="loops.html#looping-with-apply-functions"><i class="fa fa-check"></i><b>6.4</b> Looping with apply functions</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>7</b> Tables</a><ul>
 <li class="chapter" data-level="7.1" data-path="tables.html"><a href="tables.html#static-html-table---htmltable"><i class="fa fa-check"></i><b>7.1</b> Static HTML table - htmlTable</a></li>
-<li class="chapter" data-level="7.2" data-path="tables.html"><a href="tables.html#intearctive-html-table---dt"><i class="fa fa-check"></i><b>7.2</b> Intearctive HTML table - DT</a></li>
-<li class="chapter" data-level="7.3" data-path="tables.html"><a href="tables.html#complex-tabulations"><i class="fa fa-check"></i><b>7.3</b> Complex Tabulations</a></li>
+<li class="chapter" data-level="7.2" data-path="tables.html"><a href="tables.html#interactive-html-table---dt"><i class="fa fa-check"></i><b>7.2</b> Interactive HTML table - DT</a></li>
+<li class="chapter" data-level="7.3" data-path="tables.html"><a href="tables.html#cross-tabulations"><i class="fa fa-check"></i><b>7.3</b> Cross-Tabulations</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="charts.html"><a href="charts.html"><i class="fa fa-check"></i><b>8</b> Charts</a><ul>
 <li class="chapter" data-level="8.0.1" data-path="charts.html"><a href="charts.html#static-charts-with-ggplot2"><i class="fa fa-check"></i><b>8.0.1</b> Static charts with ggplot2</a></li>
@@ -308,38 +317,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="loops" class="section level1">
 <h1><span class="header-section-number">6</span> Loops</h1>
-<div id="basic-loop-structure" class="section level2">
-<h2><span class="header-section-number">6.1</span> Basic Loop structure:</h2>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="cf">for</span> (x <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</a>
-<a class="sourceLine" id="cb99-2" data-line-number="2"> <span class="kw">print</span>(x)  </a>
-<a class="sourceLine" id="cb99-3" data-line-number="3">}</a></code></pre></div>
-<pre><code>## [1] 1
-## [1] 2
-## [1] 3
-## [1] 4
-## [1] 5</code></pre>
+<p>If you want to repeat a process many times you will need to create a loop:</p>
+<div id="basic-for-loop-structure" class="section level2">
+<h2><span class="header-section-number">6.1</span> Basic for Loop structure</h2>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="cf">for</span> (x <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>) {</a>
+<a class="sourceLine" id="cb107-2" data-line-number="2"> <span class="kw">print</span>(x)  </a>
+<a class="sourceLine" id="cb107-3" data-line-number="3">}</a></code></pre></div>
 </div>
-<div id="looping-with-vectors" class="section level2">
-<h2><span class="header-section-number">6.2</span> Looping with vectors</h2>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1">loopvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;d&quot;</span>)</a>
-<a class="sourceLine" id="cb101-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb101-3" data-line-number="3"><span class="cf">for</span> (x <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(loopvector)) {</a>
-<a class="sourceLine" id="cb101-4" data-line-number="4"> <span class="kw">print</span>(loopvector[x])  </a>
-<a class="sourceLine" id="cb101-5" data-line-number="5">}</a></code></pre></div>
+<div id="looping-through-a-vector" class="section level2">
+<h2><span class="header-section-number">6.2</span> Looping through a vector</h2>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1">loopvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>)</a>
+<a class="sourceLine" id="cb108-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb108-3" data-line-number="3"><span class="cf">for</span> (x <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(loopvector)) {</a>
+<a class="sourceLine" id="cb108-4" data-line-number="4"> <span class="kw">print</span>(loopvector[x])  </a>
+<a class="sourceLine" id="cb108-5" data-line-number="5">}</a></code></pre></div>
 <pre><code>## [1] &quot;a&quot;
 ## [1] &quot;b&quot;
-## [1] &quot;c&quot;
-## [1] &quot;d&quot;</code></pre>
+## [1] &quot;c&quot;</code></pre>
 </div>
 <div id="creating-a-list-in-a-loop" class="section level2">
 <h2><span class="header-section-number">6.3</span> Creating a List in a Loop</h2>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1">newList &lt;-<span class="st"> </span><span class="kw">list</span>()  <span class="co"># An empty List</span></a>
-<a class="sourceLine" id="cb103-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb103-3" data-line-number="3"><span class="cf">for</span> (x <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</a>
-<a class="sourceLine" id="cb103-4" data-line-number="4"> newList[[x]] =<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span>  <span class="co"># Inserts an element into the List  </span></a>
-<a class="sourceLine" id="cb103-5" data-line-number="5">}</a>
-<a class="sourceLine" id="cb103-6" data-line-number="6">newList[[<span class="dv">3</span>]] </a></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1">newList &lt;-<span class="st"> </span><span class="kw">list</span>()  <span class="co"># An empty List</span></a>
+<a class="sourceLine" id="cb110-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb110-3" data-line-number="3"><span class="cf">for</span> (x <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</a>
+<a class="sourceLine" id="cb110-4" data-line-number="4"> newList[[x]] =<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span>  <span class="co"># Inserts an element into the List  </span></a>
+<a class="sourceLine" id="cb110-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb110-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb110-7" data-line-number="7">newList[[<span class="dv">3</span>]] </a></code></pre></div>
 <pre><code>## [1] 9</code></pre>
+</div>
+<div id="looping-with-apply-functions" class="section level2">
+<h2><span class="header-section-number">6.4</span> Looping with apply functions</h2>
+<p>An alternative to using ‘for’ loops is to use the apply functions. This means turning process into a function and then applying the function to a vector/matrix/list:</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1">loopvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>)</a>
+<a class="sourceLine" id="cb112-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb112-3" data-line-number="3">print_list &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb112-4" data-line-number="4">  <span class="kw">print</span>(x)</a>
+<a class="sourceLine" id="cb112-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb112-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb112-7" data-line-number="7">test &lt;-<span class="st"> </span><span class="kw">sapply</span>(loopvector, print_list)</a></code></pre></div>
+<pre><code>## [1] &quot;a&quot;
+## [1] &quot;b&quot;
+## [1] &quot;c&quot;</code></pre>
+<p>There are various types of apply function.<br />
+<strong>sapply</strong> will usually return output as a vector.<br />
+<strong>lapply</strong> will usually return output in a list.</p>
 
 </div>
 </div>

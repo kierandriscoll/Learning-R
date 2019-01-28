@@ -25,7 +25,7 @@
 <meta name="author" content="Kieran Driscoll">
 
 
-<meta name="date" content="2019-01-06">
+<meta name="date" content="2019-01-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -48,20 +48,26 @@
 
 
 <script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 <link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
 <script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
 <script src="libs/moment-2.8.4/moment.js"></script>
 <script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
 <script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
 <script src="libs/dygraphs-binding-1.1.1.4/dygraphs.js"></script>
-<link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-0.7.7/leaflet.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<link href="libs/leaflet-label-0.2.2/leaflet.label.css" rel="stylesheet" />
-<script src="libs/leaflet-label-0.2.2/leaflet.label.js"></script>
-<script src="libs/Proj4Leaflet-0.7.2/proj4-compressed.js"></script>
-<script src="libs/Proj4Leaflet-0.7.2/proj4leaflet.js"></script>
-<script src="libs/leaflet-binding-1.1.0/leaflet.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
 <script src="libs/d3-4.3.0/d3.min.js"></script>
 <script src="libs/d3-lasso-0.0.5/d3-lasso.min.js"></script>
 <link href="libs/ggiraph-0.3.0/styles.css" rel="stylesheet" />
@@ -153,13 +159,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> R User Notebook</a></li>
 <li class="chapter" data-level="2" data-path="basic-concepts.html"><a href="basic-concepts.html"><i class="fa fa-check"></i><b>2</b> Basic Concepts</a><ul>
 <li class="chapter" data-level="2.1" data-path="basic-concepts.html"><a href="basic-concepts.html#vectors"><i class="fa fa-check"></i><b>2.1</b> Vectors</a></li>
-<li class="chapter" data-level="2.2" data-path="basic-concepts.html"><a href="basic-concepts.html#lists"><i class="fa fa-check"></i><b>2.2</b> Lists</a></li>
-<li class="chapter" data-level="2.3" data-path="basic-concepts.html"><a href="basic-concepts.html#factors"><i class="fa fa-check"></i><b>2.3</b> Factors</a></li>
-<li class="chapter" data-level="2.4" data-path="basic-concepts.html"><a href="basic-concepts.html#dataframes"><i class="fa fa-check"></i><b>2.4</b> Dataframes</a></li>
-<li class="chapter" data-level="2.5" data-path="basic-concepts.html"><a href="basic-concepts.html#tibbles"><i class="fa fa-check"></i><b>2.5</b> Tibbles</a></li>
-<li class="chapter" data-level="2.6" data-path="basic-concepts.html"><a href="basic-concepts.html#extracting-data-from-dataframestibbles"><i class="fa fa-check"></i><b>2.6</b> Extracting data from Dataframes/Tibbles</a></li>
-<li class="chapter" data-level="2.7" data-path="basic-concepts.html"><a href="basic-concepts.html#dates"><i class="fa fa-check"></i><b>2.7</b> Dates</a></li>
-<li class="chapter" data-level="2.8" data-path="basic-concepts.html"><a href="basic-concepts.html#style-guide"><i class="fa fa-check"></i><b>2.8</b> Style Guide</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-concepts.html"><a href="basic-concepts.html#matrices"><i class="fa fa-check"></i><b>2.2</b> Matrices</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-concepts.html"><a href="basic-concepts.html#dataframes"><i class="fa fa-check"></i><b>2.3</b> Dataframes</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-concepts.html"><a href="basic-concepts.html#tibbles"><i class="fa fa-check"></i><b>2.4</b> Tibbles</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-concepts.html"><a href="basic-concepts.html#extracting-data-from-dataframestibbles"><i class="fa fa-check"></i><b>2.5</b> Extracting data from Dataframes/Tibbles</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-concepts.html"><a href="basic-concepts.html#lists"><i class="fa fa-check"></i><b>2.6</b> Lists</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-concepts.html"><a href="basic-concepts.html#factors"><i class="fa fa-check"></i><b>2.7</b> Factors</a></li>
+<li class="chapter" data-level="2.8" data-path="basic-concepts.html"><a href="basic-concepts.html#dates"><i class="fa fa-check"></i><b>2.8</b> Dates</a></li>
+<li class="chapter" data-level="2.9" data-path="basic-concepts.html"><a href="basic-concepts.html#style-guide"><i class="fa fa-check"></i><b>2.9</b> Style Guide</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="importing-exporting.html"><a href="importing-exporting.html"><i class="fa fa-check"></i><b>3</b> Importing &amp; Exporting</a><ul>
 <li class="chapter" data-level="3.1" data-path="importing-exporting.html"><a href="importing-exporting.html#importing-with-base-r"><i class="fa fa-check"></i><b>3.1</b> Importing with Base R</a></li>
@@ -176,13 +183,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.2" data-path="importing-exporting.html"><a href="importing-exporting.html#write-to-an-csv-file"><i class="fa fa-check"></i><b>3.3.2</b> Write to an CSV file</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="manipultaing-data.html"><a href="manipultaing-data.html"><i class="fa fa-check"></i><b>4</b> Manipultaing data</a><ul>
-<li class="chapter" data-level="4.1" data-path="manipultaing-data.html"><a href="manipultaing-data.html#basic-data-wrangling"><i class="fa fa-check"></i><b>4.1</b> Basic data wrangling:</a></li>
-<li class="chapter" data-level="4.2" data-path="manipultaing-data.html"><a href="manipultaing-data.html#summary-statistics"><i class="fa fa-check"></i><b>4.2</b> Summary statistics:</a></li>
-<li class="chapter" data-level="4.3" data-path="manipultaing-data.html"><a href="manipultaing-data.html#conditional-statements"><i class="fa fa-check"></i><b>4.3</b> Conditional statements</a></li>
-<li class="chapter" data-level="4.4" data-path="manipultaing-data.html"><a href="manipultaing-data.html#appending-joins"><i class="fa fa-check"></i><b>4.4</b> Appending &amp; Joins:</a></li>
-<li class="chapter" data-level="4.5" data-path="manipultaing-data.html"><a href="manipultaing-data.html#tidyr-tidy-data"><i class="fa fa-check"></i><b>4.5</b> tidyr &amp; tidy data</a></li>
-<li class="chapter" data-level="4.6" data-path="manipultaing-data.html"><a href="manipultaing-data.html#tibbles-1"><i class="fa fa-check"></i><b>4.6</b> tibbles</a></li>
+<li class="chapter" data-level="4" data-path="manipulating-data.html"><a href="manipulating-data.html"><i class="fa fa-check"></i><b>4</b> Manipulating data</a><ul>
+<li class="chapter" data-level="4.1" data-path="manipulating-data.html"><a href="manipulating-data.html#basic-data-wrangling"><i class="fa fa-check"></i><b>4.1</b> Basic data wrangling</a></li>
+<li class="chapter" data-level="4.2" data-path="manipulating-data.html"><a href="manipulating-data.html#summary-statistics"><i class="fa fa-check"></i><b>4.2</b> Summary statistics</a></li>
+<li class="chapter" data-level="4.3" data-path="manipulating-data.html"><a href="manipulating-data.html#conditional-statements"><i class="fa fa-check"></i><b>4.3</b> Conditional statements</a></li>
+<li class="chapter" data-level="4.4" data-path="manipulating-data.html"><a href="manipulating-data.html#appending-columns-and-rows"><i class="fa fa-check"></i><b>4.4</b> Appending columns and rows</a></li>
+<li class="chapter" data-level="4.5" data-path="manipulating-data.html"><a href="manipulating-data.html#joins"><i class="fa fa-check"></i><b>4.5</b> Joins</a></li>
+<li class="chapter" data-level="4.6" data-path="manipulating-data.html"><a href="manipulating-data.html#tidy-data"><i class="fa fa-check"></i><b>4.6</b> Tidy Data</a></li>
+<li class="chapter" data-level="4.7" data-path="manipulating-data.html"><a href="manipulating-data.html#tibbles-1"><i class="fa fa-check"></i><b>4.7</b> tibbles</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>5</b> Functions</a><ul>
 <li class="chapter" data-level="5.1" data-path="functions.html"><a href="functions.html#function-basics---an-example-using-str"><i class="fa fa-check"></i><b>5.1</b> Function Basics - an example using str()</a></li>
@@ -201,14 +209,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.7" data-path="functions.html"><a href="functions.html#chainingpiping"><i class="fa fa-check"></i><b>5.7</b> Chaining/Piping</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>6</b> Loops</a><ul>
-<li class="chapter" data-level="6.1" data-path="loops.html"><a href="loops.html#basic-loop-structure"><i class="fa fa-check"></i><b>6.1</b> Basic Loop structure:</a></li>
-<li class="chapter" data-level="6.2" data-path="loops.html"><a href="loops.html#looping-with-vectors"><i class="fa fa-check"></i><b>6.2</b> Looping with vectors</a></li>
+<li class="chapter" data-level="6.1" data-path="loops.html"><a href="loops.html#basic-for-loop-structure"><i class="fa fa-check"></i><b>6.1</b> Basic for Loop structure</a></li>
+<li class="chapter" data-level="6.2" data-path="loops.html"><a href="loops.html#looping-through-a-vector"><i class="fa fa-check"></i><b>6.2</b> Looping through a vector</a></li>
 <li class="chapter" data-level="6.3" data-path="loops.html"><a href="loops.html#creating-a-list-in-a-loop"><i class="fa fa-check"></i><b>6.3</b> Creating a List in a Loop</a></li>
+<li class="chapter" data-level="6.4" data-path="loops.html"><a href="loops.html#looping-with-apply-functions"><i class="fa fa-check"></i><b>6.4</b> Looping with apply functions</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>7</b> Tables</a><ul>
 <li class="chapter" data-level="7.1" data-path="tables.html"><a href="tables.html#static-html-table---htmltable"><i class="fa fa-check"></i><b>7.1</b> Static HTML table - htmlTable</a></li>
-<li class="chapter" data-level="7.2" data-path="tables.html"><a href="tables.html#intearctive-html-table---dt"><i class="fa fa-check"></i><b>7.2</b> Intearctive HTML table - DT</a></li>
-<li class="chapter" data-level="7.3" data-path="tables.html"><a href="tables.html#complex-tabulations"><i class="fa fa-check"></i><b>7.3</b> Complex Tabulations</a></li>
+<li class="chapter" data-level="7.2" data-path="tables.html"><a href="tables.html#interactive-html-table---dt"><i class="fa fa-check"></i><b>7.2</b> Interactive HTML table - DT</a></li>
+<li class="chapter" data-level="7.3" data-path="tables.html"><a href="tables.html#cross-tabulations"><i class="fa fa-check"></i><b>7.3</b> Cross-Tabulations</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="charts.html"><a href="charts.html"><i class="fa fa-check"></i><b>8</b> Charts</a><ul>
 <li class="chapter" data-level="8.0.1" data-path="charts.html"><a href="charts.html#static-charts-with-ggplot2"><i class="fa fa-check"></i><b>8.0.1</b> Static charts with ggplot2</a></li>
@@ -320,10 +329,10 @@ By default these should contain ‘hello.R’ and ‘hello.Rd’ files.</p>
 <div id="r-folder" class="section level2">
 <h2><span class="header-section-number">15.2</span> R folder</h2>
 <p>Delete the contents of ‘hello.R’ and replace with your own package function(s). For example:</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1">packagefunction &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</a>
-<a class="sourceLine" id="cb211-2" data-line-number="2">  xyz &lt;-<span class="st"> </span>x<span class="op">*</span>y</a>
-<a class="sourceLine" id="cb211-3" data-line-number="3">  <span class="kw">return</span>(xyz)  </a>
-<a class="sourceLine" id="cb211-4" data-line-number="4">} </a></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1">packagefunction &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</a>
+<a class="sourceLine" id="cb229-2" data-line-number="2">  xyz &lt;-<span class="st"> </span>x<span class="op">*</span>y</a>
+<a class="sourceLine" id="cb229-3" data-line-number="3">  <span class="kw">return</span>(xyz)  </a>
+<a class="sourceLine" id="cb229-4" data-line-number="4">} </a></code></pre></div>
 <p>NB. DO NOT use library() or require() in any function files. See the Dependencies section below.
 Rename the .R file so that it matches the function name.</p>
 </div>
@@ -331,37 +340,37 @@ Rename the .R file so that it matches the function name.</p>
 <h2><span class="header-section-number">15.3</span> man folder</h2>
 <p>Delete the contents of ‘hello.Rd’ and replace with documentation of your own functions.<br />
 A .Rd file is needed <strong>for each function</strong> that you create. It should have the following format:</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" data-line-number="1">\name{ packagefunction }</a>
-<a class="sourceLine" id="cb212-2" data-line-number="2">\alias{ packagefunction }</a>
-<a class="sourceLine" id="cb212-3" data-line-number="3">\title{ A basic <span class="cf">function</span> }</a>
-<a class="sourceLine" id="cb212-4" data-line-number="4">\usage{ <span class="kw">packagefunction</span>() }</a>
-<a class="sourceLine" id="cb212-5" data-line-number="5">\description{ Multiplies <span class="dv">2</span> numbers. }</a>
-<a class="sourceLine" id="cb212-6" data-line-number="6">\examples{ <span class="kw">packagefunction</span>() }</a></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1">\name{ packagefunction }</a>
+<a class="sourceLine" id="cb230-2" data-line-number="2">\alias{ packagefunction }</a>
+<a class="sourceLine" id="cb230-3" data-line-number="3">\title{ A basic <span class="cf">function</span> }</a>
+<a class="sourceLine" id="cb230-4" data-line-number="4">\usage{ <span class="kw">packagefunction</span>() }</a>
+<a class="sourceLine" id="cb230-5" data-line-number="5">\description{ Multiplies <span class="dv">2</span> numbers. }</a>
+<a class="sourceLine" id="cb230-6" data-line-number="6">\examples{ <span class="kw">packagefunction</span>() }</a></code></pre></div>
 <p>Rename the .Rd file so that it matches the function name.</p>
 </div>
 <div id="package-details" class="section level2">
 <h2><span class="header-section-number">15.4</span> Package details</h2>
 <p>By default a ‘DESCRIPTION’ file should have been created such as the example below. You can update these as neccessary.</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1">Package<span class="op">:</span><span class="st"> </span>kdpackage0</a>
-<a class="sourceLine" id="cb213-2" data-line-number="2">Type<span class="op">:</span><span class="st"> </span>Package</a>
-<a class="sourceLine" id="cb213-3" data-line-number="3">Title<span class="op">:</span><span class="st"> </span>What the Package <span class="kw">Does</span> (Title Case)</a>
-<a class="sourceLine" id="cb213-4" data-line-number="4">Version<span class="op">:</span><span class="st"> </span><span class="dv">0</span>.<span class="fl">1.0</span></a>
-<a class="sourceLine" id="cb213-5" data-line-number="5">Author<span class="op">:</span><span class="st"> </span>Who wrote it</a>
-<a class="sourceLine" id="cb213-6" data-line-number="6">Maintainer<span class="op">:</span><span class="st"> </span>The package maintainer <span class="op">&lt;</span>yourself<span class="op">@</span>somewhere.net<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb213-7" data-line-number="7">Description<span class="op">:</span><span class="st"> </span>More about what it <span class="kw">does</span> (maybe more than one line)</a>
-<a class="sourceLine" id="cb213-8" data-line-number="8">    Use four spaces when indenting paragraphs within the Description.</a>
-<a class="sourceLine" id="cb213-9" data-line-number="9">License<span class="op">:</span><span class="st"> </span>What license is it under?</a>
-<a class="sourceLine" id="cb213-10" data-line-number="10">Encoding<span class="op">:</span><span class="st"> </span>UTF<span class="dv">-8</span></a>
-<a class="sourceLine" id="cb213-11" data-line-number="11">LazyData<span class="op">:</span><span class="st"> </span>true</a></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1">Package<span class="op">:</span><span class="st"> </span>kdpackage0</a>
+<a class="sourceLine" id="cb231-2" data-line-number="2">Type<span class="op">:</span><span class="st"> </span>Package</a>
+<a class="sourceLine" id="cb231-3" data-line-number="3">Title<span class="op">:</span><span class="st"> </span>What the Package <span class="kw">Does</span> (Title Case)</a>
+<a class="sourceLine" id="cb231-4" data-line-number="4">Version<span class="op">:</span><span class="st"> </span><span class="dv">0</span>.<span class="fl">1.0</span></a>
+<a class="sourceLine" id="cb231-5" data-line-number="5">Author<span class="op">:</span><span class="st"> </span>Who wrote it</a>
+<a class="sourceLine" id="cb231-6" data-line-number="6">Maintainer<span class="op">:</span><span class="st"> </span>The package maintainer <span class="op">&lt;</span>yourself<span class="op">@</span>somewhere.net<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb231-7" data-line-number="7">Description<span class="op">:</span><span class="st"> </span>More about what it <span class="kw">does</span> (maybe more than one line)</a>
+<a class="sourceLine" id="cb231-8" data-line-number="8">    Use four spaces when indenting paragraphs within the Description.</a>
+<a class="sourceLine" id="cb231-9" data-line-number="9">License<span class="op">:</span><span class="st"> </span>What license is it under?</a>
+<a class="sourceLine" id="cb231-10" data-line-number="10">Encoding<span class="op">:</span><span class="st"> </span>UTF<span class="dv">-8</span></a>
+<a class="sourceLine" id="cb231-11" data-line-number="11">LazyData<span class="op">:</span><span class="st"> </span>true</a></code></pre></div>
 </div>
 <div id="package-dependencies" class="section level2">
 <h2><span class="header-section-number">15.5</span> Package Dependencies</h2>
 <p>If your package uses functions from other packages then you must add these to the ‘DESCRIPTION’ file so that they are imported. For example this package will use functions form dplyr and tm (sepearted by commas):</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1">Package<span class="op">:</span><span class="st"> </span>kdpackage0</a>
-<a class="sourceLine" id="cb214-2" data-line-number="2">...</a>
-<a class="sourceLine" id="cb214-3" data-line-number="3">Imports<span class="op">:</span></a>
-<a class="sourceLine" id="cb214-4" data-line-number="4"><span class="st">        </span>dplyr,</a>
-<a class="sourceLine" id="cb214-5" data-line-number="5">        tm</a></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1">Package<span class="op">:</span><span class="st"> </span>kdpackage0</a>
+<a class="sourceLine" id="cb232-2" data-line-number="2">...</a>
+<a class="sourceLine" id="cb232-3" data-line-number="3">Imports<span class="op">:</span></a>
+<a class="sourceLine" id="cb232-4" data-line-number="4"><span class="st">        </span>dplyr,</a>
+<a class="sourceLine" id="cb232-5" data-line-number="5">        tm</a></code></pre></div>
 </div>
 <div id="build-the-package" class="section level2">
 <h2><span class="header-section-number">15.6</span> Build the package</h2>

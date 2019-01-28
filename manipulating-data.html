@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="creating-packages.html">
-
+<link rel="prev" href="importing-exporting.html">
+<link rel="next" href="functions.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -315,36 +315,135 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="git---version-control" class="section level1">
-<h1><span class="header-section-number">16</span> Git - Version Control</h1>
-<div id="set-up-1" class="section level2">
-<h2><span class="header-section-number">16.1</span> Set-up</h2>
-<p>Download and install Git</p>
-<p>Go to Tools &gt; Global Options &gt; Git/SVN
-Make sure “Enable version control interface for RStudio projects” is selected
-Change the paths so they refer to the folder where Git.exe is stored (Probably C:Files).
-Restart RSTudio</p>
+<div id="manipulating-data" class="section level1">
+<h1><span class="header-section-number">4</span> Manipulating data</h1>
+<p>Most common data manpulation can be done using the tidyverse package, which includes <strong>dplyr</strong> and <strong>tidyr</strong>. They include functions to subset and merge and pivot dataframes/tibbles.</p>
+<div id="basic-data-wrangling" class="section level2">
+<h2><span class="header-section-number">4.1</span> Basic data wrangling</h2>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.4.4</code></pre>
+<pre><code>## -- Attaching packages ----------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 3.0.0     v purrr   0.2.4
+## v tidyr   0.8.0     v dplyr   0.7.6
+## v readr   1.1.1     v stringr 1.3.0
+## v ggplot2 3.0.0     v forcats 0.3.0</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.4.4</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.4.4</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.4.4</code></pre>
+<pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.4.4</code></pre>
+<pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.4.4</code></pre>
+<pre><code>## -- Conflicts -------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="co"># Keep/Drop specific columns with select()</span></a>
+<a class="sourceLine" id="cb46-2" data-line-number="2">dplyr<span class="op">::</span><span class="kw">select</span>(mtcars, mpg) <span class="co"># Only keeps mpg</span></a>
+<a class="sourceLine" id="cb46-3" data-line-number="3">dplyr<span class="op">::</span><span class="kw">select</span>(mtcars,<span class="op">-</span>mpg) <span class="co"># Drop mpg by prefixing with  a &#39;-&#39; </span></a>
+<a class="sourceLine" id="cb46-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb46-5" data-line-number="5"><span class="co"># Keep columns that meet specific conditions select_if()</span></a>
+<a class="sourceLine" id="cb46-6" data-line-number="6">dplyr<span class="op">::</span><span class="kw">select_if</span>(mtcars, is.numeric)</a>
+<a class="sourceLine" id="cb46-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb46-8" data-line-number="8"><span class="co"># Select rows that meet specific conditions using filter()</span></a>
+<a class="sourceLine" id="cb46-9" data-line-number="9">dplyr<span class="op">::</span><span class="kw">filter</span>(mtcars, hp <span class="op">&gt;</span><span class="st"> </span><span class="dv">100</span> <span class="op">&amp;</span><span class="st"> </span>hp <span class="op">&lt;</span><span class="st"> </span><span class="dv">200</span>)</a>
+<a class="sourceLine" id="cb46-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb46-11" data-line-number="11"><span class="co"># Rename columns using rename() </span></a>
+<a class="sourceLine" id="cb46-12" data-line-number="12">dplyr<span class="op">::</span><span class="kw">rename</span>(mtcars, <span class="dt">HorsePower =</span> hp)  <span class="co">#Nb. the new name is specifed first New=Old</span></a>
+<a class="sourceLine" id="cb46-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb46-14" data-line-number="14"><span class="co"># Create new columns using mutate() or transmute()</span></a>
+<a class="sourceLine" id="cb46-15" data-line-number="15">dplyr<span class="op">::</span><span class="kw">mutate</span>(mtcars, <span class="dt">kmpg =</span> mpg<span class="op">*</span><span class="fl">1.609</span>)  </a>
+<a class="sourceLine" id="cb46-16" data-line-number="16"><span class="co"># OR to also drop all other columns </span></a>
+<a class="sourceLine" id="cb46-17" data-line-number="17">dplyr<span class="op">::</span><span class="kw">transmute</span>(mtcars, <span class="dt">kmpg =</span> mpg<span class="op">*</span><span class="fl">1.609</span>)  </a>
+<a class="sourceLine" id="cb46-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb46-19" data-line-number="19"><span class="co"># Extract a column as a vector/list</span></a>
+<a class="sourceLine" id="cb46-20" data-line-number="20">dplyr<span class="op">::</span><span class="kw">pull</span>(peopletdf, Age)</a>
+<a class="sourceLine" id="cb46-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb46-22" data-line-number="22"><span class="co"># Sort data (ascending by default)</span></a>
+<a class="sourceLine" id="cb46-23" data-line-number="23">dplyr<span class="op">::</span><span class="kw">arrange</span>(mtcars, wt) <span class="co"># add desc(wt) for descending</span></a>
+<a class="sourceLine" id="cb46-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb46-25" data-line-number="25"><span class="co"># Extract unique values</span></a>
+<a class="sourceLine" id="cb46-26" data-line-number="26">dplyr<span class="op">::</span><span class="kw">distinct</span>(mtcars, cyl) </a></code></pre></div>
 </div>
-<div id="link-git-to-a-github-account" class="section level2">
-<h2><span class="header-section-number">16.2</span> Link Git to a GitHub account</h2>
-<p>You can access Git shell in R using Tools &gt; Shell (or you can open Git-bash) and enter your GitHub details:</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1"> git config <span class="op">--</span>global user.name <span class="st">&#39;yourGitHubUsername&#39;</span></a>
-<a class="sourceLine" id="cb233-2" data-line-number="2"> git config <span class="op">--</span>global user.email <span class="st">&#39;name@provider.com&#39;</span></a></code></pre></div>
+<div id="summary-statistics" class="section level2">
+<h2><span class="header-section-number">4.2</span> Summary statistics</h2>
+<p>Bsic statistics about a column (eg. sum, mean, median, max, min) can be calculated using the <strong>summarise</strong> function</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">summarise</span>(mtcars, <span class="st">&quot;mean&quot;</span> =<span class="st"> </span><span class="kw">mean</span>(mpg),</a>
+<a class="sourceLine" id="cb47-2" data-line-number="2">                         <span class="st">&quot;median&quot;</span> =<span class="st"> </span><span class="kw">median</span>(mpg),</a>
+<a class="sourceLine" id="cb47-3" data-line-number="3">                         <span class="st">&quot;max&quot;</span> =<span class="st"> </span><span class="kw">max</span>(mpg),</a>
+<a class="sourceLine" id="cb47-4" data-line-number="4">                         <span class="st">&quot;n&quot;</span> =<span class="st"> </span><span class="kw">n</span>() )</a></code></pre></div>
+<pre><code>## Warning: package &#39;bindrcpp&#39; was built under R version 3.4.4</code></pre>
+<pre><code>##       mean median  max  n
+## 1 20.09062   19.2 33.9 32</code></pre>
+<p>The <strong>group_by</strong> function can be used to produce grouped statistics:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">group_by</span>(mtcars, am) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb50-2" data-line-number="2"><span class="st">        </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="st">&quot;mean&quot;</span> =<span class="st"> </span><span class="kw">mean</span>(wt)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb50-3" data-line-number="3"><span class="st">         </span>dplyr<span class="op">::</span><span class="kw">ungroup</span>()  <span class="co"># Stop grouping</span></a></code></pre></div>
+<pre><code>## # A tibble: 2 x 2
+##      am  mean
+##   &lt;dbl&gt; &lt;dbl&gt;
+## 1  0     3.77
+## 2  1.00  2.41</code></pre>
+<p>The <strong>count</strong> function is a quick way of producing frequency counts by one or more variables:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="co"># Frequency count of variable (+ optional sorting of results)</span></a>
+<a class="sourceLine" id="cb52-2" data-line-number="2">dplyr<span class="op">::</span><span class="kw">count</span>(mtcars, cyl, <span class="dt">sort =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 </div>
-<div id="starting-a-project-with-github" class="section level2">
-<h2><span class="header-section-number">16.3</span> Starting a project with Github</h2>
-<p>In GitHub create a repository, and copy its URL (eg. <a href="https://github.com/username/test.git" class="uri">https://github.com/username/test.git</a>)
-In RStudio Create a New Project , choosing Version Control &gt; Git
-Paste in the GitHub Repository URL (from above). The project name should auto-complete.
-Also choose the folder where a local copy will be stored (Nb. dont use a Google Drive folder as tis casuses synch conflicts)</p>
-<p>You can now commit-push changes to the code and these will also be updated on GitHub.
-The first time you you do this you might need to provie GitHub login details.</p>
+<div id="conditional-statements" class="section level2">
+<h2><span class="header-section-number">4.3</span> Conditional statements</h2>
+<p>New variables can be created with conditional rules by using the <strong>case_when</strong> function:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">mutate</span>(mtcars, <span class="dt">weight_group =</span> dplyr<span class="op">::</span><span class="kw">case_when</span>(wt <span class="op">&lt;</span><span class="st"> </span><span class="fl">2.5</span> <span class="op">~</span><span class="st"> &quot;low&quot;</span>,</a>
+<a class="sourceLine" id="cb53-2" data-line-number="2">                                                 wt <span class="op">&lt;</span><span class="st"> </span><span class="fl">3.5</span> <span class="op">~</span><span class="st"> &quot;medium&quot;</span>,</a>
+<a class="sourceLine" id="cb53-3" data-line-number="3">                                                     <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;high&quot;</span>))</a></code></pre></div>
 </div>
-<div id="hosting-a-site-on-github" class="section level2">
-<h2><span class="header-section-number">16.4</span> Hosting a site on Github</h2>
-<p>In the GitHub repository, click on <em>Settings</em> and scroll down to the GitHub pages section.
-Select the source were your html files are (eg. master branch) and click save.
-Your site will be hosted at on your account in the form : <a href="https://kierandriscoll.github.io/repositoryname/" class="uri">https://kierandriscoll.github.io/repositoryname/</a></p>
+<div id="appending-columns-and-rows" class="section level2">
+<h2><span class="header-section-number">4.4</span> Appending columns and rows</h2>
+<p>Additional columns or rows can be added to a dataframe, but they must have the same number/types of elements, and be in the correct order.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="co"># Add a column </span></a>
+<a class="sourceLine" id="cb54-2" data-line-number="2"><span class="kw">cbind</span>(mtcars, mtcars<span class="op">$</span>mpg) </a>
+<a class="sourceLine" id="cb54-3" data-line-number="3">dplyr<span class="op">::</span><span class="kw">bind_cols</span>(mtcars, <span class="dt">mpg2=</span>mtcars<span class="op">$</span>mpg)</a>
+<a class="sourceLine" id="cb54-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb54-5" data-line-number="5"><span class="co"># Add a row </span></a>
+<a class="sourceLine" id="cb54-6" data-line-number="6"><span class="kw">rbind</span>(mtcars, mtcars)</a>
+<a class="sourceLine" id="cb54-7" data-line-number="7">dplyr<span class="op">::</span><span class="kw">bind_rows</span>(mtcars, mtcars)</a></code></pre></div>
+</div>
+<div id="joins" class="section level2">
+<h2><span class="header-section-number">4.5</span> Joins</h2>
+<p>To join dataframes together by a common id standard joins (left, inner, outer..) can be used:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">left_join</span>(mydf1, mydf2, <span class="dt">by =</span> <span class="st">&#39;id&#39;</span>)</a>
+<a class="sourceLine" id="cb55-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb55-3" data-line-number="3"><span class="co"># Anti-Join : Only keep rows from mydf1 if they DONT match with mydf2, eg. to remove certain types of observation</span></a>
+<a class="sourceLine" id="cb55-4" data-line-number="4">dplyr<span class="op">::</span><span class="kw">anti_join</span>(mydf1, mydf2, <span class="dt">by =</span> <span class="st">&#39;id&#39;</span>)</a></code></pre></div>
+</div>
+<div id="tidy-data" class="section level2">
+<h2><span class="header-section-number">4.6</span> Tidy Data</h2>
+<p>You can convert data to/from a tidy format with the <strong>tidyr</strong> package. Nb. tidyr includes dplyr.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="kw">library</span>(tidyr)</a>
+<a class="sourceLine" id="cb56-2" data-line-number="2">tidydf &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw">tibble</span>(</a>
+<a class="sourceLine" id="cb56-3" data-line-number="3">                 <span class="st">&#39;Year&#39;</span>=<span class="kw">c</span>(<span class="dv">2016</span>,<span class="dv">2016</span>,<span class="dv">2017</span>,<span class="dv">2017</span>,<span class="dv">2018</span>,<span class="dv">2018</span>),</a>
+<a class="sourceLine" id="cb56-4" data-line-number="4">                 <span class="st">&#39;Type&#39;</span>=<span class="kw">c</span>(<span class="st">&#39;A&#39;</span>,<span class="st">&#39;B&#39;</span>,<span class="st">&#39;A&#39;</span>,<span class="st">&#39;C&#39;</span>,<span class="st">&#39;B&#39;</span>,<span class="st">&#39;C&#39;</span>),</a>
+<a class="sourceLine" id="cb56-5" data-line-number="5">                 <span class="st">&#39;Amount&#39;</span>=<span class="kw">c</span>(<span class="dv">111</span>,<span class="dv">222</span>,<span class="dv">333</span>,<span class="dv">444</span>,<span class="dv">555</span>,<span class="dv">666</span>) )</a>
+<a class="sourceLine" id="cb56-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb56-7" data-line-number="7"><span class="co"># Pivot tidy data so that values become columns</span></a>
+<a class="sourceLine" id="cb56-8" data-line-number="8">nottidy &lt;-<span class="st"> </span>tidyr<span class="op">::</span><span class="kw">spread</span>(tidydf, <span class="dt">key=</span>Year, <span class="dt">value=</span>Amount)</a>
+<a class="sourceLine" id="cb56-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb56-10" data-line-number="10"><span class="co"># Pivot data into a tidy format (ie. reverse spread)</span></a>
+<a class="sourceLine" id="cb56-11" data-line-number="11">tidyr<span class="op">::</span><span class="kw">gather</span>(nottidy, <span class="dt">key=</span>Age, <span class="dt">value=</span>Amount, <span class="op">-</span>Type)</a></code></pre></div>
+<pre><code>## # A tibble: 9 x 3
+##   Type  Age   Amount
+##   &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;
+## 1 A     2016     111
+## 2 B     2016     222
+## 3 C     2016      NA
+## 4 A     2017     333
+## 5 B     2017      NA
+## 6 C     2017     444
+## 7 A     2018      NA
+## 8 B     2018     555
+## 9 C     2018     666</code></pre>
+</div>
+<div id="tibbles-1" class="section level2">
+<h2><span class="header-section-number">4.7</span> tibbles</h2>
+<p>The tibble package includes some extra functions for altering tibbles.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="kw">library</span>(tibble)</a>
+<a class="sourceLine" id="cb58-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb58-3" data-line-number="3"><span class="co"># Add new column to a tibble (with value)</span></a>
+<a class="sourceLine" id="cb58-4" data-line-number="4">tibble<span class="op">::</span><span class="kw">add_column</span>(mydf, <span class="dt">newcol=</span><span class="st">&#39;2014-15&#39;</span>)</a></code></pre></div>
 
 </div>
 </div>
@@ -353,8 +452,8 @@ Your site will be hosted at on your account in the form : <a href="https://kiera
           </div>
         </div>
       </div>
-<a href="creating-packages.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="importing-exporting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
