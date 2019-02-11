@@ -25,7 +25,7 @@
 <meta name="author" content="Kieran Driscoll">
 
 
-<meta name="date" content="2019-02-04">
+<meta name="date" content="2019-02-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -55,6 +55,10 @@
 <script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
 <link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
 <script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
 <script src="libs/moment-2.8.4/moment.js"></script>
@@ -187,10 +191,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="manipulating-data.html"><a href="manipulating-data.html#basic-data-wrangling"><i class="fa fa-check"></i><b>4.1</b> Basic data wrangling</a></li>
 <li class="chapter" data-level="4.2" data-path="manipulating-data.html"><a href="manipulating-data.html#summary-statistics"><i class="fa fa-check"></i><b>4.2</b> Summary statistics</a></li>
 <li class="chapter" data-level="4.3" data-path="manipulating-data.html"><a href="manipulating-data.html#conditional-statements"><i class="fa fa-check"></i><b>4.3</b> Conditional statements</a></li>
-<li class="chapter" data-level="4.4" data-path="manipulating-data.html"><a href="manipulating-data.html#appending-columns-and-rows"><i class="fa fa-check"></i><b>4.4</b> Appending columns and rows</a></li>
-<li class="chapter" data-level="4.5" data-path="manipulating-data.html"><a href="manipulating-data.html#joins"><i class="fa fa-check"></i><b>4.5</b> Joins</a></li>
-<li class="chapter" data-level="4.6" data-path="manipulating-data.html"><a href="manipulating-data.html#tidy-data"><i class="fa fa-check"></i><b>4.6</b> Tidy Data</a></li>
-<li class="chapter" data-level="4.7" data-path="manipulating-data.html"><a href="manipulating-data.html#tibbles-1"><i class="fa fa-check"></i><b>4.7</b> tibbles</a></li>
+<li class="chapter" data-level="4.4" data-path="manipulating-data.html"><a href="manipulating-data.html#recode"><i class="fa fa-check"></i><b>4.4</b> Recode</a></li>
+<li class="chapter" data-level="4.5" data-path="manipulating-data.html"><a href="manipulating-data.html#appending-columns-and-rows"><i class="fa fa-check"></i><b>4.5</b> Appending columns and rows</a></li>
+<li class="chapter" data-level="4.6" data-path="manipulating-data.html"><a href="manipulating-data.html#joins"><i class="fa fa-check"></i><b>4.6</b> Joins</a></li>
+<li class="chapter" data-level="4.7" data-path="manipulating-data.html"><a href="manipulating-data.html#tidy-data"><i class="fa fa-check"></i><b>4.7</b> Tidy Data</a></li>
+<li class="chapter" data-level="4.8" data-path="manipulating-data.html"><a href="manipulating-data.html#tibbles-1"><i class="fa fa-check"></i><b>4.8</b> tibbles</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>5</b> Functions</a><ul>
 <li class="chapter" data-level="5.1" data-path="functions.html"><a href="functions.html#function-basics---an-example-using-str"><i class="fa fa-check"></i><b>5.1</b> Function Basics - an example using str()</a></li>
@@ -230,9 +235,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.0.7" data-path="charts.html"><a href="charts.html#heatmaps"><i class="fa fa-check"></i><b>8.0.7</b> Heatmaps</a></li>
 <li class="chapter" data-level="8.0.8" data-path="charts.html"><a href="charts.html#boxplots"><i class="fa fa-check"></i><b>8.0.8</b> Boxplots</a></li>
 <li class="chapter" data-level="8.0.9" data-path="charts.html"><a href="charts.html#combination-charts"><i class="fa fa-check"></i><b>8.0.9</b> Combination Charts</a></li>
-<li class="chapter" data-level="8.0.10" data-path="charts.html"><a href="charts.html#ggplot-wizard"><i class="fa fa-check"></i><b>8.0.10</b> ggplot wizard</a></li>
-<li class="chapter" data-level="8.0.11" data-path="charts.html"><a href="charts.html#interactive-charts-with-ggiraph"><i class="fa fa-check"></i><b>8.0.11</b> Interactive charts with ggiraph</a></li>
-<li class="chapter" data-level="8.0.12" data-path="charts.html"><a href="charts.html#interactive-charts-with-dygraph"><i class="fa fa-check"></i><b>8.0.12</b> Interactive charts with dygraph</a></li>
+<li class="chapter" data-level="8.0.10" data-path="charts.html"><a href="charts.html#scales"><i class="fa fa-check"></i><b>8.0.10</b> Scales</a></li>
+<li class="chapter" data-level="8.0.11" data-path="charts.html"><a href="charts.html#ggplot-wizard"><i class="fa fa-check"></i><b>8.0.11</b> ggplot wizard</a></li>
+<li class="chapter" data-level="8.0.12" data-path="charts.html"><a href="charts.html#interactive-charts-with-ggiraph"><i class="fa fa-check"></i><b>8.0.12</b> Interactive charts with ggiraph</a></li>
+<li class="chapter" data-level="8.0.13" data-path="charts.html"><a href="charts.html#interactive-charts-with-dygraph"><i class="fa fa-check"></i><b>8.0.13</b> Interactive charts with dygraph</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="maps.html"><a href="maps.html"><i class="fa fa-check"></i><b>9</b> Maps</a><ul>
 <li class="chapter" data-level="9.1" data-path="maps.html"><a href="maps.html#leaflet"><i class="fa fa-check"></i><b>9.1</b> Leaflet</a><ul>
@@ -307,6 +313,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16.2" data-path="git-version-control.html"><a href="git-version-control.html#link-git-to-a-github-account"><i class="fa fa-check"></i><b>16.2</b> Link Git to a GitHub account</a></li>
 <li class="chapter" data-level="16.3" data-path="git-version-control.html"><a href="git-version-control.html#starting-a-project-with-github"><i class="fa fa-check"></i><b>16.3</b> Starting a project with Github</a></li>
 <li class="chapter" data-level="16.4" data-path="git-version-control.html"><a href="git-version-control.html#hosting-a-site-on-github"><i class="fa fa-check"></i><b>16.4</b> Hosting a site on Github</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="other-languages.html"><a href="other-languages.html"><i class="fa fa-check"></i><b>17</b> Other Languages</a><ul>
+<li class="chapter" data-level="17.1" data-path="other-languages.html"><a href="other-languages.html#sql"><i class="fa fa-check"></i><b>17.1</b> SQL</a></li>
+<li class="chapter" data-level="17.2" data-path="other-languages.html"><a href="other-languages.html#python"><i class="fa fa-check"></i><b>17.2</b> Python</a></li>
 </ul></li>
 </ul>
 
@@ -422,39 +432,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb46-2" data-line-number="2">                                                 wt <span class="op">&lt;</span><span class="st"> </span><span class="fl">3.5</span> <span class="op">~</span><span class="st"> &quot;medium&quot;</span>,</a>
 <a class="sourceLine" id="cb46-3" data-line-number="3">                                                     <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;high&quot;</span>))</a></code></pre></div>
 </div>
+<div id="recode" class="section level2">
+<h2><span class="header-section-number">4.4</span> Recode</h2>
+<p>Recoding data may be useful if you have coded values and want to display a description. This is a convienience function based on case_when():</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">recode</span>(mtcars<span class="op">$</span>am, <span class="st">`</span><span class="dt">0</span><span class="st">`</span>=<span class="st">&quot;Automatic&quot;</span>, <span class="co"># If coded values are numeric then you need to use ``</span></a>
+<a class="sourceLine" id="cb47-2" data-line-number="2">                         <span class="st">`</span><span class="dt">1</span><span class="st">`</span>=<span class="st">&quot;Manual&quot;</span>,</a>
+<a class="sourceLine" id="cb47-3" data-line-number="3">                         <span class="dt">.default =</span> <span class="st">&quot;Other&quot;</span>,</a>
+<a class="sourceLine" id="cb47-4" data-line-number="4">                         <span class="dt">.missing =</span> <span class="st">&quot;missing&quot;</span>)</a></code></pre></div>
+</div>
 <div id="appending-columns-and-rows" class="section level2">
-<h2><span class="header-section-number">4.4</span> Appending columns and rows</h2>
+<h2><span class="header-section-number">4.5</span> Appending columns and rows</h2>
 <p>Additional columns or rows can be added to a dataframe, but they must have the same number/types of elements, and be in the correct order.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="co"># Add a column </span></a>
-<a class="sourceLine" id="cb47-2" data-line-number="2"><span class="kw">cbind</span>(mtcars, mtcars<span class="op">$</span>mpg) </a>
-<a class="sourceLine" id="cb47-3" data-line-number="3">dplyr<span class="op">::</span><span class="kw">bind_cols</span>(mtcars, <span class="dt">mpg2=</span>mtcars<span class="op">$</span>mpg)</a>
-<a class="sourceLine" id="cb47-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb47-5" data-line-number="5"><span class="co"># Add a row </span></a>
-<a class="sourceLine" id="cb47-6" data-line-number="6"><span class="kw">rbind</span>(mtcars, mtcars)</a>
-<a class="sourceLine" id="cb47-7" data-line-number="7">dplyr<span class="op">::</span><span class="kw">bind_rows</span>(mtcars, mtcars)</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="co"># Add a column </span></a>
+<a class="sourceLine" id="cb48-2" data-line-number="2"><span class="kw">cbind</span>(mtcars, mtcars<span class="op">$</span>mpg) </a>
+<a class="sourceLine" id="cb48-3" data-line-number="3">dplyr<span class="op">::</span><span class="kw">bind_cols</span>(mtcars, <span class="dt">mpg2=</span>mtcars<span class="op">$</span>mpg)</a>
+<a class="sourceLine" id="cb48-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb48-5" data-line-number="5"><span class="co"># Add a row </span></a>
+<a class="sourceLine" id="cb48-6" data-line-number="6"><span class="kw">rbind</span>(mtcars, mtcars)</a>
+<a class="sourceLine" id="cb48-7" data-line-number="7">dplyr<span class="op">::</span><span class="kw">bind_rows</span>(mtcars, mtcars)</a></code></pre></div>
 </div>
 <div id="joins" class="section level2">
-<h2><span class="header-section-number">4.5</span> Joins</h2>
+<h2><span class="header-section-number">4.6</span> Joins</h2>
 <p>To join dataframes together by a common id standard joins (left, inner, outer..) can be used:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">left_join</span>(mydf1, mydf2, <span class="dt">by =</span> <span class="st">&#39;id&#39;</span>)</a>
-<a class="sourceLine" id="cb48-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb48-3" data-line-number="3"><span class="co"># Anti-Join : Only keep rows from mydf1 if they DONT match with mydf2, eg. to remove certain types of observation</span></a>
-<a class="sourceLine" id="cb48-4" data-line-number="4">dplyr<span class="op">::</span><span class="kw">anti_join</span>(mydf1, mydf2, <span class="dt">by =</span> <span class="st">&#39;id&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">left_join</span>(mydf1, mydf2, <span class="dt">by =</span> <span class="st">&#39;id&#39;</span>)</a>
+<a class="sourceLine" id="cb49-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb49-3" data-line-number="3"><span class="co"># Anti-Join : Only keep rows from mydf1 if they DONT match with mydf2, eg. to remove certain types of observation</span></a>
+<a class="sourceLine" id="cb49-4" data-line-number="4">dplyr<span class="op">::</span><span class="kw">anti_join</span>(mydf1, mydf2, <span class="dt">by =</span> <span class="st">&#39;id&#39;</span>)</a></code></pre></div>
 </div>
 <div id="tidy-data" class="section level2">
-<h2><span class="header-section-number">4.6</span> Tidy Data</h2>
+<h2><span class="header-section-number">4.7</span> Tidy Data</h2>
 <p>You can convert data to/from a tidy format with the <strong>tidyr</strong> package. Nb. tidyr includes dplyr.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="kw">library</span>(tidyr)</a>
-<a class="sourceLine" id="cb49-2" data-line-number="2">tidydf &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw">tibble</span>(</a>
-<a class="sourceLine" id="cb49-3" data-line-number="3">                 <span class="st">&#39;Year&#39;</span>=<span class="kw">c</span>(<span class="dv">2016</span>,<span class="dv">2016</span>,<span class="dv">2017</span>,<span class="dv">2017</span>,<span class="dv">2018</span>,<span class="dv">2018</span>),</a>
-<a class="sourceLine" id="cb49-4" data-line-number="4">                 <span class="st">&#39;Type&#39;</span>=<span class="kw">c</span>(<span class="st">&#39;A&#39;</span>,<span class="st">&#39;B&#39;</span>,<span class="st">&#39;A&#39;</span>,<span class="st">&#39;C&#39;</span>,<span class="st">&#39;B&#39;</span>,<span class="st">&#39;C&#39;</span>),</a>
-<a class="sourceLine" id="cb49-5" data-line-number="5">                 <span class="st">&#39;Amount&#39;</span>=<span class="kw">c</span>(<span class="dv">111</span>,<span class="dv">222</span>,<span class="dv">333</span>,<span class="dv">444</span>,<span class="dv">555</span>,<span class="dv">666</span>) )</a>
-<a class="sourceLine" id="cb49-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb49-7" data-line-number="7"><span class="co"># Pivot tidy data so that values become columns</span></a>
-<a class="sourceLine" id="cb49-8" data-line-number="8">nottidy &lt;-<span class="st"> </span>tidyr<span class="op">::</span><span class="kw">spread</span>(tidydf, <span class="dt">key=</span>Year, <span class="dt">value=</span>Amount)</a>
-<a class="sourceLine" id="cb49-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb49-10" data-line-number="10"><span class="co"># Pivot data into a tidy format (ie. reverse spread)</span></a>
-<a class="sourceLine" id="cb49-11" data-line-number="11">tidyr<span class="op">::</span><span class="kw">gather</span>(nottidy, <span class="dt">key=</span>Age, <span class="dt">value=</span>Amount, <span class="op">-</span>Type)</a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="kw">library</span>(tidyr)</a>
+<a class="sourceLine" id="cb50-2" data-line-number="2">tidydf &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw">tibble</span>(</a>
+<a class="sourceLine" id="cb50-3" data-line-number="3">                 <span class="st">&#39;Year&#39;</span>=<span class="kw">c</span>(<span class="dv">2016</span>,<span class="dv">2016</span>,<span class="dv">2017</span>,<span class="dv">2017</span>,<span class="dv">2018</span>,<span class="dv">2018</span>),</a>
+<a class="sourceLine" id="cb50-4" data-line-number="4">                 <span class="st">&#39;Type&#39;</span>=<span class="kw">c</span>(<span class="st">&#39;A&#39;</span>,<span class="st">&#39;B&#39;</span>,<span class="st">&#39;A&#39;</span>,<span class="st">&#39;C&#39;</span>,<span class="st">&#39;B&#39;</span>,<span class="st">&#39;C&#39;</span>),</a>
+<a class="sourceLine" id="cb50-5" data-line-number="5">                 <span class="st">&#39;Amount&#39;</span>=<span class="kw">c</span>(<span class="dv">111</span>,<span class="dv">222</span>,<span class="dv">333</span>,<span class="dv">444</span>,<span class="dv">555</span>,<span class="dv">666</span>) )</a>
+<a class="sourceLine" id="cb50-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb50-7" data-line-number="7"><span class="co"># Pivot tidy data so that values become columns</span></a>
+<a class="sourceLine" id="cb50-8" data-line-number="8">nottidy &lt;-<span class="st"> </span>tidyr<span class="op">::</span><span class="kw">spread</span>(tidydf, <span class="dt">key=</span>Year, <span class="dt">value=</span>Amount)</a>
+<a class="sourceLine" id="cb50-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb50-10" data-line-number="10"><span class="co"># Pivot data into a tidy format (ie. reverse spread)</span></a>
+<a class="sourceLine" id="cb50-11" data-line-number="11">tidyr<span class="op">::</span><span class="kw">gather</span>(nottidy, <span class="dt">key=</span>Age, <span class="dt">value=</span>Amount, <span class="op">-</span>Type)</a></code></pre></div>
 <pre><code>## # A tibble: 9 x 3
 ##   Type  Age   Amount
 ##   &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;
@@ -469,12 +487,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 9 C     2018     666</code></pre>
 </div>
 <div id="tibbles-1" class="section level2">
-<h2><span class="header-section-number">4.7</span> tibbles</h2>
+<h2><span class="header-section-number">4.8</span> tibbles</h2>
 <p>The tibble package includes some extra functions for altering tibbles.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="kw">library</span>(tibble)</a>
-<a class="sourceLine" id="cb51-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb51-3" data-line-number="3"><span class="co"># Add new column to a tibble (with value)</span></a>
-<a class="sourceLine" id="cb51-4" data-line-number="4">tibble<span class="op">::</span><span class="kw">add_column</span>(mydf, <span class="dt">newcol=</span><span class="st">&#39;2014-15&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">library</span>(tibble)</a>
+<a class="sourceLine" id="cb52-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb52-3" data-line-number="3"><span class="co"># Add new column to a tibble (with value)</span></a>
+<a class="sourceLine" id="cb52-4" data-line-number="4">tibble<span class="op">::</span><span class="kw">add_column</span>(mydf, <span class="dt">newcol=</span><span class="st">&#39;2014-15&#39;</span>)</a></code></pre></div>
 
 </div>
 </div>

@@ -25,7 +25,7 @@
 <meta name="author" content="Kieran Driscoll">
 
 
-<meta name="date" content="2019-02-04">
+<meta name="date" content="2019-02-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -55,6 +55,10 @@
 <script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
 <link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
 <script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
 <script src="libs/moment-2.8.4/moment.js"></script>
@@ -187,10 +191,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="manipulating-data.html"><a href="manipulating-data.html#basic-data-wrangling"><i class="fa fa-check"></i><b>4.1</b> Basic data wrangling</a></li>
 <li class="chapter" data-level="4.2" data-path="manipulating-data.html"><a href="manipulating-data.html#summary-statistics"><i class="fa fa-check"></i><b>4.2</b> Summary statistics</a></li>
 <li class="chapter" data-level="4.3" data-path="manipulating-data.html"><a href="manipulating-data.html#conditional-statements"><i class="fa fa-check"></i><b>4.3</b> Conditional statements</a></li>
-<li class="chapter" data-level="4.4" data-path="manipulating-data.html"><a href="manipulating-data.html#appending-columns-and-rows"><i class="fa fa-check"></i><b>4.4</b> Appending columns and rows</a></li>
-<li class="chapter" data-level="4.5" data-path="manipulating-data.html"><a href="manipulating-data.html#joins"><i class="fa fa-check"></i><b>4.5</b> Joins</a></li>
-<li class="chapter" data-level="4.6" data-path="manipulating-data.html"><a href="manipulating-data.html#tidy-data"><i class="fa fa-check"></i><b>4.6</b> Tidy Data</a></li>
-<li class="chapter" data-level="4.7" data-path="manipulating-data.html"><a href="manipulating-data.html#tibbles-1"><i class="fa fa-check"></i><b>4.7</b> tibbles</a></li>
+<li class="chapter" data-level="4.4" data-path="manipulating-data.html"><a href="manipulating-data.html#recode"><i class="fa fa-check"></i><b>4.4</b> Recode</a></li>
+<li class="chapter" data-level="4.5" data-path="manipulating-data.html"><a href="manipulating-data.html#appending-columns-and-rows"><i class="fa fa-check"></i><b>4.5</b> Appending columns and rows</a></li>
+<li class="chapter" data-level="4.6" data-path="manipulating-data.html"><a href="manipulating-data.html#joins"><i class="fa fa-check"></i><b>4.6</b> Joins</a></li>
+<li class="chapter" data-level="4.7" data-path="manipulating-data.html"><a href="manipulating-data.html#tidy-data"><i class="fa fa-check"></i><b>4.7</b> Tidy Data</a></li>
+<li class="chapter" data-level="4.8" data-path="manipulating-data.html"><a href="manipulating-data.html#tibbles-1"><i class="fa fa-check"></i><b>4.8</b> tibbles</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>5</b> Functions</a><ul>
 <li class="chapter" data-level="5.1" data-path="functions.html"><a href="functions.html#function-basics---an-example-using-str"><i class="fa fa-check"></i><b>5.1</b> Function Basics - an example using str()</a></li>
@@ -230,9 +235,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.0.7" data-path="charts.html"><a href="charts.html#heatmaps"><i class="fa fa-check"></i><b>8.0.7</b> Heatmaps</a></li>
 <li class="chapter" data-level="8.0.8" data-path="charts.html"><a href="charts.html#boxplots"><i class="fa fa-check"></i><b>8.0.8</b> Boxplots</a></li>
 <li class="chapter" data-level="8.0.9" data-path="charts.html"><a href="charts.html#combination-charts"><i class="fa fa-check"></i><b>8.0.9</b> Combination Charts</a></li>
-<li class="chapter" data-level="8.0.10" data-path="charts.html"><a href="charts.html#ggplot-wizard"><i class="fa fa-check"></i><b>8.0.10</b> ggplot wizard</a></li>
-<li class="chapter" data-level="8.0.11" data-path="charts.html"><a href="charts.html#interactive-charts-with-ggiraph"><i class="fa fa-check"></i><b>8.0.11</b> Interactive charts with ggiraph</a></li>
-<li class="chapter" data-level="8.0.12" data-path="charts.html"><a href="charts.html#interactive-charts-with-dygraph"><i class="fa fa-check"></i><b>8.0.12</b> Interactive charts with dygraph</a></li>
+<li class="chapter" data-level="8.0.10" data-path="charts.html"><a href="charts.html#scales"><i class="fa fa-check"></i><b>8.0.10</b> Scales</a></li>
+<li class="chapter" data-level="8.0.11" data-path="charts.html"><a href="charts.html#ggplot-wizard"><i class="fa fa-check"></i><b>8.0.11</b> ggplot wizard</a></li>
+<li class="chapter" data-level="8.0.12" data-path="charts.html"><a href="charts.html#interactive-charts-with-ggiraph"><i class="fa fa-check"></i><b>8.0.12</b> Interactive charts with ggiraph</a></li>
+<li class="chapter" data-level="8.0.13" data-path="charts.html"><a href="charts.html#interactive-charts-with-dygraph"><i class="fa fa-check"></i><b>8.0.13</b> Interactive charts with dygraph</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="maps.html"><a href="maps.html"><i class="fa fa-check"></i><b>9</b> Maps</a><ul>
 <li class="chapter" data-level="9.1" data-path="maps.html"><a href="maps.html#leaflet"><i class="fa fa-check"></i><b>9.1</b> Leaflet</a><ul>
@@ -308,6 +314,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16.3" data-path="git-version-control.html"><a href="git-version-control.html#starting-a-project-with-github"><i class="fa fa-check"></i><b>16.3</b> Starting a project with Github</a></li>
 <li class="chapter" data-level="16.4" data-path="git-version-control.html"><a href="git-version-control.html#hosting-a-site-on-github"><i class="fa fa-check"></i><b>16.4</b> Hosting a site on Github</a></li>
 </ul></li>
+<li class="chapter" data-level="17" data-path="other-languages.html"><a href="other-languages.html"><i class="fa fa-check"></i><b>17</b> Other Languages</a><ul>
+<li class="chapter" data-level="17.1" data-path="other-languages.html"><a href="other-languages.html#sql"><i class="fa fa-check"></i><b>17.1</b> SQL</a></li>
+<li class="chapter" data-level="17.2" data-path="other-languages.html"><a href="other-languages.html#python"><i class="fa fa-check"></i><b>17.2</b> Python</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -332,116 +342,116 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To create interactive maps you need the <strong>leaflet</strong> library. This provides various functions that will be transalated into Javascript.</p>
 <div id="display-a-basic-map" class="section level3">
 <h3><span class="header-section-number">9.1.1</span> Display a basic map</h3>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1"><span class="kw">library</span>(leaflet)</a></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="kw">library</span>(leaflet)</a></code></pre></div>
 <pre><code>## Warning: package &#39;leaflet&#39; was built under R version 3.4.4</code></pre>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" data-line-number="1">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">leaflet</span>() <span class="co"># This initiates a map; it is possible to change the width and height here</span></a>
-<a class="sourceLine" id="cb148-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb148-3" data-line-number="3">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">setView</span>(mymap,</a>
-<a class="sourceLine" id="cb148-4" data-line-number="4">                          <span class="dt">lng =</span> <span class="fl">-0.12481</span>, <span class="co"># The initial longitude + latitude </span></a>
-<a class="sourceLine" id="cb148-5" data-line-number="5">                          <span class="dt">lat =</span> <span class="fl">51.50811</span>,</a>
-<a class="sourceLine" id="cb148-6" data-line-number="6">                          <span class="dt">zoom =</span> <span class="dv">10</span>) <span class="co"># The initial zoom level</span></a>
-<a class="sourceLine" id="cb148-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb148-8" data-line-number="8">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addTiles</span>(mymap) <span class="co"># This add tiles to the map; by default it uses OpenStreetMap</span></a>
-<a class="sourceLine" id="cb148-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb148-10" data-line-number="10">mymap <span class="co"># this will display the map</span></a></code></pre></div>
-<div id="htmlwidget-b1005fbd7ea62d8c3584" style="width:672px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b1005fbd7ea62d8c3584">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[51.50811,-0.12481],10,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">leaflet</span>() <span class="co"># This initiates a map; it is possible to change the width and height here</span></a>
+<a class="sourceLine" id="cb151-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb151-3" data-line-number="3">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">setView</span>(mymap,</a>
+<a class="sourceLine" id="cb151-4" data-line-number="4">                          <span class="dt">lng =</span> <span class="fl">-0.12481</span>, <span class="co"># The initial longitude + latitude </span></a>
+<a class="sourceLine" id="cb151-5" data-line-number="5">                          <span class="dt">lat =</span> <span class="fl">51.50811</span>,</a>
+<a class="sourceLine" id="cb151-6" data-line-number="6">                          <span class="dt">zoom =</span> <span class="dv">10</span>) <span class="co"># The initial zoom level</span></a>
+<a class="sourceLine" id="cb151-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb151-8" data-line-number="8">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addTiles</span>(mymap) <span class="co"># This add tiles to the map; by default it uses OpenStreetMap</span></a>
+<a class="sourceLine" id="cb151-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb151-10" data-line-number="10">mymap <span class="co"># this will display the map</span></a></code></pre></div>
+<div id="htmlwidget-daa3d759b5ef741e8042" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-daa3d759b5ef741e8042">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[51.50811,-0.12481],10,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="add-markers-shapes-and-popups-to-a-map" class="section level3">
 <h3><span class="header-section-number">9.1.2</span> Add markers, shapes and popups to a map</h3>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addMarkers</span>(mymap, <span class="dt">lng=</span><span class="op">-</span><span class="fl">0.126965</span>, <span class="dt">lat=</span><span class="fl">51.501555</span>, <span class="dt">popup=</span><span class="st">&quot;HMRC&quot;</span>) <span class="co">#Use longitude and latitude to place a marker. The default blue marker is used.</span></a>
-<a class="sourceLine" id="cb149-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb149-3" data-line-number="3">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addCircles</span>(mymap, <span class="dt">lng=</span><span class="op">-</span><span class="fl">0.021002</span>, <span class="dt">lat=</span><span class="fl">51.504475</span>,<span class="dt">radius=</span><span class="dv">10</span>, <span class="dt">popup=</span><span class="st">&quot;HMRC&quot;</span>) <span class="co">#Use longitude and latitude to place a circle, and radius (in metres) for its size. </span></a>
-<a class="sourceLine" id="cb149-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb149-5" data-line-number="5">mymap</a></code></pre></div>
-<div id="htmlwidget-2325a8c58d27673e23c8" style="width:672px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2325a8c58d27673e23c8">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[51.50811,-0.12481],10,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[51.501555,-0.126965,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"HMRC",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircles","args":[51.504475,-0.021002,10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2},"HMRC",null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]}],"limits":{"lat":[51.501555,51.504475],"lng":[-0.126965,-0.021002]}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addMarkers</span>(mymap, <span class="dt">lng=</span><span class="op">-</span><span class="fl">0.126965</span>, <span class="dt">lat=</span><span class="fl">51.501555</span>, <span class="dt">popup=</span><span class="st">&quot;HMRC&quot;</span>) <span class="co">#Use longitude and latitude to place a marker. The default blue marker is used.</span></a>
+<a class="sourceLine" id="cb152-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb152-3" data-line-number="3">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addCircles</span>(mymap, <span class="dt">lng=</span><span class="op">-</span><span class="fl">0.021002</span>, <span class="dt">lat=</span><span class="fl">51.504475</span>,<span class="dt">radius=</span><span class="dv">10</span>, <span class="dt">popup=</span><span class="st">&quot;HMRC&quot;</span>) <span class="co">#Use longitude and latitude to place a circle, and radius (in metres) for its size. </span></a>
+<a class="sourceLine" id="cb152-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb152-5" data-line-number="5">mymap</a></code></pre></div>
+<div id="htmlwidget-26e1836bc9f9ccf9c4c2" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-26e1836bc9f9ccf9c4c2">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[51.50811,-0.12481],10,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[51.501555,-0.126965,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"HMRC",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircles","args":[51.504475,-0.021002,10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2},"HMRC",null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]}],"limits":{"lat":[51.501555,51.504475],"lng":[-0.126965,-0.021002]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="add-boundaries" class="section level3">
 <h3><span class="header-section-number">9.1.3</span> Add Boundaries</h3>
 <p>To add boundaries you need geojson or topojson. This needs to be converted into a format the R understands using functions in the geojsonio library.</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" data-line-number="1"><span class="kw">library</span>(geojsonio)</a>
-<a class="sourceLine" id="cb150-2" data-line-number="2">la &lt;-<span class="st"> </span>geojsonio<span class="op">::</span><span class="kw">topojson_read</span>(<span class="st">&#39;~/R/Local_Auths_Dec16_Gen_Clip_GB.json&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1"><span class="kw">library</span>(geojsonio)</a>
+<a class="sourceLine" id="cb153-2" data-line-number="2">la &lt;-<span class="st"> </span>geojsonio<span class="op">::</span><span class="kw">topojson_read</span>(<span class="st">&#39;~/R/Local_Auths_Dec16_Gen_Clip_GB.json&#39;</span>)</a></code></pre></div>
 <p>R converts this geojson into a Spatial Polygon Dataframe (SPD). This should consist of 2 main attributes: <strong>data</strong> which has descriptive information about the polygon such as a name, and <strong>polygons</strong> and contains all the coordinates for each polygon. To see what the contain you can us the following:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1">la<span class="op">@</span>data</a>
-<a class="sourceLine" id="cb151-2" data-line-number="2">la<span class="op">@</span>polygons</a>
-<a class="sourceLine" id="cb151-3" data-line-number="3"><span class="co"># The @ symbol is used to access different &#39;slots&#39; in the SPD. </span></a></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1">la<span class="op">@</span>data</a>
+<a class="sourceLine" id="cb154-2" data-line-number="2">la<span class="op">@</span>polygons</a>
+<a class="sourceLine" id="cb154-3" data-line-number="3"><span class="co"># The @ symbol is used to access different &#39;slots&#39; in the SPD. </span></a></code></pre></div>
 <p>The boundary data can now be attached to the map when it is first initialized.</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">leaflet</span>(la)</a>
-<a class="sourceLine" id="cb152-2" data-line-number="2">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">setView</span>(mymap,<span class="dt">lng=</span><span class="op">-</span><span class="fl">3.332291</span>,<span class="dt">lat=</span><span class="fl">54.978353</span>,<span class="dt">zoom=</span><span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb152-3" data-line-number="3">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addPolygons</span>(mymap, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>,<span class="dt">weight=</span><span class="dv">1</span>, <span class="dt">fillColor=</span><span class="st">&#39;white&#39;</span>,<span class="dt">fillOpacity =</span> <span class="fl">0.8</span>) <span class="co">#This draws the boundary lines</span></a>
-<a class="sourceLine" id="cb152-4" data-line-number="4">mymap</a></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" data-line-number="1">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">leaflet</span>(la)</a>
+<a class="sourceLine" id="cb155-2" data-line-number="2">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">setView</span>(mymap,<span class="dt">lng=</span><span class="op">-</span><span class="fl">3.332291</span>,<span class="dt">lat=</span><span class="fl">54.978353</span>,<span class="dt">zoom=</span><span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb155-3" data-line-number="3">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addPolygons</span>(mymap, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>,<span class="dt">weight=</span><span class="dv">1</span>, <span class="dt">fillColor=</span><span class="st">&#39;white&#39;</span>,<span class="dt">fillOpacity =</span> <span class="fl">0.8</span>) <span class="co">#This draws the boundary lines</span></a>
+<a class="sourceLine" id="cb155-4" data-line-number="4">mymap</a></code></pre></div>
 </div>
 <div id="add-interactivity" class="section level3">
 <h3><span class="header-section-number">9.1.4</span> Add Interactivity</h3>
 <p>Highlights can be added when you hover over an area.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addPolygons</span>(mymap,</a>
-<a class="sourceLine" id="cb153-2" data-line-number="2">                              <span class="dt">color=</span><span class="st">&#39;black&#39;</span>,</a>
-<a class="sourceLine" id="cb153-3" data-line-number="3">                              <span class="dt">weight=</span><span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb153-4" data-line-number="4">                              <span class="dt">fillColor=</span><span class="st">&#39;white&#39;</span>,</a>
-<a class="sourceLine" id="cb153-5" data-line-number="5">                              <span class="dt">fillOpacity =</span> <span class="fl">0.8</span>       ,</a>
-<a class="sourceLine" id="cb153-6" data-line-number="6">                              <span class="dt">highlight =</span> <span class="kw">highlightOptions</span>(</a>
-<a class="sourceLine" id="cb153-7" data-line-number="7">                                  <span class="dt">weight =</span> <span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb153-8" data-line-number="8">                                  <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>,</a>
-<a class="sourceLine" id="cb153-9" data-line-number="9">                                  <span class="dt">bringToFront =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb153-10" data-line-number="10">                              )</a></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addPolygons</span>(mymap,</a>
+<a class="sourceLine" id="cb156-2" data-line-number="2">                              <span class="dt">color=</span><span class="st">&#39;black&#39;</span>,</a>
+<a class="sourceLine" id="cb156-3" data-line-number="3">                              <span class="dt">weight=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb156-4" data-line-number="4">                              <span class="dt">fillColor=</span><span class="st">&#39;white&#39;</span>,</a>
+<a class="sourceLine" id="cb156-5" data-line-number="5">                              <span class="dt">fillOpacity =</span> <span class="fl">0.8</span>       ,</a>
+<a class="sourceLine" id="cb156-6" data-line-number="6">                              <span class="dt">highlight =</span> <span class="kw">highlightOptions</span>(</a>
+<a class="sourceLine" id="cb156-7" data-line-number="7">                                  <span class="dt">weight =</span> <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb156-8" data-line-number="8">                                  <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>,</a>
+<a class="sourceLine" id="cb156-9" data-line-number="9">                                  <span class="dt">bringToFront =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb156-10" data-line-number="10">                              )</a></code></pre></div>
 <p>Popup info can also be added when you hover over an area. This requires using the sprintf function, which includes HTML.</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1">mylabel &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">&quot;&lt;strong&gt;%s&lt;/strong&gt;&lt;br/&gt;%s&quot;</span>, la<span class="op">$</span>lad16nm, la<span class="op">$</span>lad16cd ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">lapply</span>(htmltools<span class="op">::</span>HTML)</a>
-<a class="sourceLine" id="cb154-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb154-3" data-line-number="3"><span class="co"># These can can now be assigned to the label attribute</span></a>
-<a class="sourceLine" id="cb154-4" data-line-number="4">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addPolygons</span>(mymap, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>,<span class="dt">weight=</span><span class="dv">1</span>, <span class="dt">fillColor=</span><span class="st">&#39;white&#39;</span>,<span class="dt">fillOpacity =</span> <span class="fl">0.8</span>,</a>
-<a class="sourceLine" id="cb154-5" data-line-number="5">          <span class="dt">highlight =</span> <span class="kw">highlightOptions</span>(</a>
-<a class="sourceLine" id="cb154-6" data-line-number="6">          <span class="dt">weight =</span> <span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb154-7" data-line-number="7">          <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>,</a>
-<a class="sourceLine" id="cb154-8" data-line-number="8">          <span class="dt">bringToFront =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb154-9" data-line-number="9">          <span class="dt">label =</span> mylabel)</a></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" data-line-number="1">mylabel &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">&quot;&lt;strong&gt;%s&lt;/strong&gt;&lt;br/&gt;%s&quot;</span>, la<span class="op">$</span>lad16nm, la<span class="op">$</span>lad16cd ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">lapply</span>(htmltools<span class="op">::</span>HTML)</a>
+<a class="sourceLine" id="cb157-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb157-3" data-line-number="3"><span class="co"># These can can now be assigned to the label attribute</span></a>
+<a class="sourceLine" id="cb157-4" data-line-number="4">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addPolygons</span>(mymap, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>,<span class="dt">weight=</span><span class="dv">1</span>, <span class="dt">fillColor=</span><span class="st">&#39;white&#39;</span>,<span class="dt">fillOpacity =</span> <span class="fl">0.8</span>,</a>
+<a class="sourceLine" id="cb157-5" data-line-number="5">          <span class="dt">highlight =</span> <span class="kw">highlightOptions</span>(</a>
+<a class="sourceLine" id="cb157-6" data-line-number="6">          <span class="dt">weight =</span> <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb157-7" data-line-number="7">          <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>,</a>
+<a class="sourceLine" id="cb157-8" data-line-number="8">          <span class="dt">bringToFront =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb157-9" data-line-number="9">          <span class="dt">label =</span> mylabel)</a></code></pre></div>
 <p>The code that is written in the <strong>sprintf</strong> function rquires a special format. The first argument defines what and how text willl be dispalayed. It includes placeholders (eg. %s) that can have differnet types. All subsequent arguments represent the data variables that will are represented by the placeholders (in the order they occur).For more info see <a href="https://www.rdocumentation.org/packages/base/versions/3.4.3/topics/sprintf" class="uri">https://www.rdocumentation.org/packages/base/versions/3.4.3/topics/sprintf</a>.</p>
 </div>
 <div id="attach-extra-information-to-your-boundary-dataset" class="section level3">
 <h3><span class="header-section-number">9.1.5</span> Attach extra information to your boundary dataset</h3>
 <p>You will usually want to add additional data/statistics to the boundary file, so that you can improve visualition/interactivity.
 You can merge a regular dataframe wih an SPD provided they have a common variable (eg. ONS Id’s).</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" data-line-number="1"><span class="co"># First create a dataframe with test data</span></a>
-<a class="sourceLine" id="cb155-2" data-line-number="2">mydf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&#39;lad16cd&#39;</span>=<span class="kw">c</span>(<span class="st">&#39;E06000001&#39;</span>,<span class="st">&#39;E06000002&#39;</span>,<span class="st">&#39;E06000003&#39;</span>),</a>
-<a class="sourceLine" id="cb155-3" data-line-number="3">                   <span class="st">&#39;extraStat&#39;</span>=<span class="kw">c</span>(<span class="dv">25000</span>,<span class="dv">34000</span>,<span class="dv">38000</span>) )</a>
-<a class="sourceLine" id="cb155-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb155-5" data-line-number="5"><span class="co"># Merge extra data into the SPD</span></a>
-<a class="sourceLine" id="cb155-6" data-line-number="6"><span class="kw">require</span>(sp) <span class="co"># Need for the following merge to work correctly</span></a>
-<a class="sourceLine" id="cb155-7" data-line-number="7">la &lt;-<span class="st"> </span>sp<span class="op">::</span><span class="kw">merge</span>(la, mydf, <span class="dt">by.x =</span> <span class="st">&quot;lad16cd&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;lad16cd&quot;</span>)</a>
-<a class="sourceLine" id="cb155-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb155-9" data-line-number="9"><span class="co">#Check that merge has worked</span></a>
-<a class="sourceLine" id="cb155-10" data-line-number="10">la<span class="op">@</span>data <span class="co"># A new column should appear with the extra data </span></a></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="co"># First create a dataframe with test data</span></a>
+<a class="sourceLine" id="cb158-2" data-line-number="2">mydf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&#39;lad16cd&#39;</span>=<span class="kw">c</span>(<span class="st">&#39;E06000001&#39;</span>,<span class="st">&#39;E06000002&#39;</span>,<span class="st">&#39;E06000003&#39;</span>),</a>
+<a class="sourceLine" id="cb158-3" data-line-number="3">                   <span class="st">&#39;extraStat&#39;</span>=<span class="kw">c</span>(<span class="dv">25000</span>,<span class="dv">34000</span>,<span class="dv">38000</span>) )</a>
+<a class="sourceLine" id="cb158-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb158-5" data-line-number="5"><span class="co"># Merge extra data into the SPD</span></a>
+<a class="sourceLine" id="cb158-6" data-line-number="6"><span class="kw">require</span>(sp) <span class="co"># Need for the following merge to work correctly</span></a>
+<a class="sourceLine" id="cb158-7" data-line-number="7">la &lt;-<span class="st"> </span>sp<span class="op">::</span><span class="kw">merge</span>(la, mydf, <span class="dt">by.x =</span> <span class="st">&quot;lad16cd&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;lad16cd&quot;</span>)</a>
+<a class="sourceLine" id="cb158-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb158-9" data-line-number="9"><span class="co">#Check that merge has worked</span></a>
+<a class="sourceLine" id="cb158-10" data-line-number="10">la<span class="op">@</span>data <span class="co"># A new column should appear with the extra data </span></a></code></pre></div>
 </div>
 <div id="add-colour-based-on-area-data" class="section level3">
 <h3><span class="header-section-number">9.1.6</span> Add colour based on area data</h3>
 <p>First you will need to define a colour pallete, and the range of values (bins) they will apply to. This is done using the colorBin function.</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1">pal &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">colorBin</span>(<span class="st">&quot;YlOrRd&quot;</span>, <span class="dt">bins =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">24999</span>, <span class="dv">34000</span>, <span class="dv">38000</span>, <span class="ot">Inf</span>))</a>
-<a class="sourceLine" id="cb156-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb156-3" data-line-number="3"><span class="co"># &#39;YlorRd&#39; is a particular color scale. See http://colorbrewer2.org for alternatives. You could also create a user defined list of colours using Hexadecimal eg. #fcbba1 instead. </span></a></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" data-line-number="1">pal &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">colorBin</span>(<span class="st">&quot;YlOrRd&quot;</span>, <span class="dt">bins =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">24999</span>, <span class="dv">34000</span>, <span class="dv">38000</span>, <span class="ot">Inf</span>))</a>
+<a class="sourceLine" id="cb159-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb159-3" data-line-number="3"><span class="co"># &#39;YlorRd&#39; is a particular color scale. See http://colorbrewer2.org for alternatives. You could also create a user defined list of colours using Hexadecimal eg. #fcbba1 instead. </span></a></code></pre></div>
 <p>Now the colour pallete can be assigned to the <strong>fillColor</strong> attribute, allomg with the variable name that will be used .</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" data-line-number="1">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addPolygons</span>(mymap,</a>
-<a class="sourceLine" id="cb157-2" data-line-number="2">                     <span class="dt">color=</span><span class="st">&#39;black&#39;</span>,</a>
-<a class="sourceLine" id="cb157-3" data-line-number="3">                     <span class="dt">weight=</span><span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb157-4" data-line-number="4">                     <span class="dt">fillColor=</span><span class="op">~</span><span class="kw">pal</span>(extraStat), <span class="co">#Nb. the ~ indicates that the variable is contained with the la SPD </span></a>
-<a class="sourceLine" id="cb157-5" data-line-number="5">                     <span class="dt">fillOpacity =</span> <span class="fl">0.8</span>,</a>
-<a class="sourceLine" id="cb157-6" data-line-number="6">                     <span class="dt">highlight =</span> <span class="kw">highlightOptions</span>(</a>
-<a class="sourceLine" id="cb157-7" data-line-number="7">                      <span class="dt">weight =</span> <span class="dv">4</span>,</a>
-<a class="sourceLine" id="cb157-8" data-line-number="8">                      <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>,</a>
-<a class="sourceLine" id="cb157-9" data-line-number="9">                      <span class="dt">bringToFront =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1">mymap &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw">addPolygons</span>(mymap,</a>
+<a class="sourceLine" id="cb160-2" data-line-number="2">                     <span class="dt">color=</span><span class="st">&#39;black&#39;</span>,</a>
+<a class="sourceLine" id="cb160-3" data-line-number="3">                     <span class="dt">weight=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb160-4" data-line-number="4">                     <span class="dt">fillColor=</span><span class="op">~</span><span class="kw">pal</span>(extraStat), <span class="co">#Nb. the ~ indicates that the variable is contained with the la SPD </span></a>
+<a class="sourceLine" id="cb160-5" data-line-number="5">                     <span class="dt">fillOpacity =</span> <span class="fl">0.8</span>,</a>
+<a class="sourceLine" id="cb160-6" data-line-number="6">                     <span class="dt">highlight =</span> <span class="kw">highlightOptions</span>(</a>
+<a class="sourceLine" id="cb160-7" data-line-number="7">                      <span class="dt">weight =</span> <span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb160-8" data-line-number="8">                      <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>,</a>
+<a class="sourceLine" id="cb160-9" data-line-number="9">                      <span class="dt">bringToFront =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
 </div>
 </div>
 <div id="inserting-html-javascript-directly-into-r" class="section level2">
 <h2><span class="header-section-number">9.2</span> Inserting HTML &amp; Javascript directly into R</h2>
 <p>Instead of using packages to create javavscript, you can insert javascript directly into Rmarkdown, and it should be displayed correctly when it Knitr is used.</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="op">&lt;</span>link rel<span class="op">=</span><span class="st">&quot;stylesheet&quot;</span> href<span class="op">=</span><span class="st">&quot;https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css&quot;</span> /&gt;  </a>
-<a class="sourceLine" id="cb158-2" data-line-number="2"><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">&quot;https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js&quot;</span><span class="op">&gt;</span>&lt;/script<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb158-3" data-line-number="3"><span class="op">&lt;</span>script type<span class="op">=</span><span class="st">&quot;text/javascript&quot;</span> src<span class="op">=</span><span class="st">&quot;https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js&quot;</span><span class="op">&gt;</span>&lt;/script<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb158-4" data-line-number="4"><span class="op">&lt;</span>div id<span class="op">=</span><span class="st">&quot;mapid&quot;</span><span class="op">&gt;</span>&lt;/div<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb158-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb158-6" data-line-number="6"><span class="co">// Define Map area/position and any background tiles </span></a>
-<a class="sourceLine" id="cb158-7" data-line-number="7"> <span class="kw">var</span> map <span class="op">=</span> <span class="kw">new</span> <span class="va">L</span>.<span class="at">Map</span>(<span class="st">&#39;mapid&#39;</span><span class="op">,</span> <span class="op">{</span> <span class="dt">center</span><span class="op">:</span> <span class="kw">new</span> <span class="va">L</span>.<span class="at">LatLng</span>(<span class="fl">53.10</span><span class="op">,</span> <span class="fl">-1.26</span>)<span class="op">,</span><span class="dt">zoom</span><span class="op">:</span> <span class="dv">7</span>   <span class="op">}</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb158-8" data-line-number="8"> <span class="kw">var</span> layer <span class="op">=</span> <span class="kw">new</span> <span class="va">L</span>.<span class="at">StamenTileLayer</span>(<span class="st">&quot;terrain&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb158-9" data-line-number="9"> <span class="va">map</span>.<span class="at">addLayer</span>(layer)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb161-1" data-line-number="1"><span class="op">&lt;</span>link rel<span class="op">=</span><span class="st">&quot;stylesheet&quot;</span> href<span class="op">=</span><span class="st">&quot;https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css&quot;</span> /&gt;  </a>
+<a class="sourceLine" id="cb161-2" data-line-number="2"><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">&quot;https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js&quot;</span><span class="op">&gt;</span>&lt;/script<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb161-3" data-line-number="3"><span class="op">&lt;</span>script type<span class="op">=</span><span class="st">&quot;text/javascript&quot;</span> src<span class="op">=</span><span class="st">&quot;https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js&quot;</span><span class="op">&gt;</span>&lt;/script<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb161-4" data-line-number="4"><span class="op">&lt;</span>div id<span class="op">=</span><span class="st">&quot;mapid&quot;</span><span class="op">&gt;</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb161-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb161-6" data-line-number="6"><span class="co">// Define Map area/position and any background tiles </span></a>
+<a class="sourceLine" id="cb161-7" data-line-number="7"> <span class="kw">var</span> map <span class="op">=</span> <span class="kw">new</span> <span class="va">L</span>.<span class="at">Map</span>(<span class="st">&#39;mapid&#39;</span><span class="op">,</span> <span class="op">{</span> <span class="dt">center</span><span class="op">:</span> <span class="kw">new</span> <span class="va">L</span>.<span class="at">LatLng</span>(<span class="fl">53.10</span><span class="op">,</span> <span class="fl">-1.26</span>)<span class="op">,</span><span class="dt">zoom</span><span class="op">:</span> <span class="dv">7</span>   <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb161-8" data-line-number="8"> <span class="kw">var</span> layer <span class="op">=</span> <span class="kw">new</span> <span class="va">L</span>.<span class="at">StamenTileLayer</span>(<span class="st">&quot;terrain&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb161-9" data-line-number="9"> <span class="va">map</span>.<span class="at">addLayer</span>(layer)<span class="op">;</span></a></code></pre></div>
 
 </div>
 </div>

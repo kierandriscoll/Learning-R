@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
+<link rel="prev" href="git-version-control.html">
 
-<link rel="next" href="basic-concepts.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -335,22 +335,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R User Notebook</h1>
-<h4 class="author"><em>Kieran Driscoll</em></h4>
-<h4 class="date"><em>2019-02-11</em></h4>
+<div id="other-languages" class="section level1">
+<h1><span class="header-section-number">17</span> Other Languages</h1>
+<p>You can use other languages in R.</p>
+<div id="sql" class="section level2">
+<h2><span class="header-section-number">17.1</span> SQL</h2>
+<p>Use the <strong>sqldf</strong> package to write code. The SQL must all be contained within &quot; &quot;.</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" data-line-number="1"><span class="kw">library</span>(sqldf)</a>
+<a class="sourceLine" id="cb242-2" data-line-number="2"><span class="kw">sqldf</span>(<span class="st">&quot;select * from mtcars where wt &gt; 4&quot;</span>) </a>
+<a class="sourceLine" id="cb242-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb242-4" data-line-number="4"><span class="co"># is equivalent to:</span></a>
+<a class="sourceLine" id="cb242-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb242-6" data-line-number="6">mtcars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(wt <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>)</a></code></pre></div>
 </div>
-<div id="r-user-notebook" class="section level1">
-<h1><span class="header-section-number">1</span> R User Notebook</h1>
+<div id="python" class="section level2">
+<h2><span class="header-section-number">17.2</span> Python</h2>
+<p>If you have Python installed on you computer, you can use the <strong>reticulate</strong> package to run Python code within R.</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" data-line-number="1"><span class="kw">library</span>(reticulate)</a></code></pre></div>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="git-version-control.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="basic-concepts.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

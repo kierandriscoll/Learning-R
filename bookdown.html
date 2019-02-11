@@ -25,7 +25,7 @@
 <meta name="author" content="Kieran Driscoll">
 
 
-<meta name="date" content="2019-02-04">
+<meta name="date" content="2019-02-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -55,6 +55,10 @@
 <script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
 <link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
 <script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
 <script src="libs/moment-2.8.4/moment.js"></script>
@@ -187,10 +191,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="manipulating-data.html"><a href="manipulating-data.html#basic-data-wrangling"><i class="fa fa-check"></i><b>4.1</b> Basic data wrangling</a></li>
 <li class="chapter" data-level="4.2" data-path="manipulating-data.html"><a href="manipulating-data.html#summary-statistics"><i class="fa fa-check"></i><b>4.2</b> Summary statistics</a></li>
 <li class="chapter" data-level="4.3" data-path="manipulating-data.html"><a href="manipulating-data.html#conditional-statements"><i class="fa fa-check"></i><b>4.3</b> Conditional statements</a></li>
-<li class="chapter" data-level="4.4" data-path="manipulating-data.html"><a href="manipulating-data.html#appending-columns-and-rows"><i class="fa fa-check"></i><b>4.4</b> Appending columns and rows</a></li>
-<li class="chapter" data-level="4.5" data-path="manipulating-data.html"><a href="manipulating-data.html#joins"><i class="fa fa-check"></i><b>4.5</b> Joins</a></li>
-<li class="chapter" data-level="4.6" data-path="manipulating-data.html"><a href="manipulating-data.html#tidy-data"><i class="fa fa-check"></i><b>4.6</b> Tidy Data</a></li>
-<li class="chapter" data-level="4.7" data-path="manipulating-data.html"><a href="manipulating-data.html#tibbles-1"><i class="fa fa-check"></i><b>4.7</b> tibbles</a></li>
+<li class="chapter" data-level="4.4" data-path="manipulating-data.html"><a href="manipulating-data.html#recode"><i class="fa fa-check"></i><b>4.4</b> Recode</a></li>
+<li class="chapter" data-level="4.5" data-path="manipulating-data.html"><a href="manipulating-data.html#appending-columns-and-rows"><i class="fa fa-check"></i><b>4.5</b> Appending columns and rows</a></li>
+<li class="chapter" data-level="4.6" data-path="manipulating-data.html"><a href="manipulating-data.html#joins"><i class="fa fa-check"></i><b>4.6</b> Joins</a></li>
+<li class="chapter" data-level="4.7" data-path="manipulating-data.html"><a href="manipulating-data.html#tidy-data"><i class="fa fa-check"></i><b>4.7</b> Tidy Data</a></li>
+<li class="chapter" data-level="4.8" data-path="manipulating-data.html"><a href="manipulating-data.html#tibbles-1"><i class="fa fa-check"></i><b>4.8</b> tibbles</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>5</b> Functions</a><ul>
 <li class="chapter" data-level="5.1" data-path="functions.html"><a href="functions.html#function-basics---an-example-using-str"><i class="fa fa-check"></i><b>5.1</b> Function Basics - an example using str()</a></li>
@@ -230,9 +235,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.0.7" data-path="charts.html"><a href="charts.html#heatmaps"><i class="fa fa-check"></i><b>8.0.7</b> Heatmaps</a></li>
 <li class="chapter" data-level="8.0.8" data-path="charts.html"><a href="charts.html#boxplots"><i class="fa fa-check"></i><b>8.0.8</b> Boxplots</a></li>
 <li class="chapter" data-level="8.0.9" data-path="charts.html"><a href="charts.html#combination-charts"><i class="fa fa-check"></i><b>8.0.9</b> Combination Charts</a></li>
-<li class="chapter" data-level="8.0.10" data-path="charts.html"><a href="charts.html#ggplot-wizard"><i class="fa fa-check"></i><b>8.0.10</b> ggplot wizard</a></li>
-<li class="chapter" data-level="8.0.11" data-path="charts.html"><a href="charts.html#interactive-charts-with-ggiraph"><i class="fa fa-check"></i><b>8.0.11</b> Interactive charts with ggiraph</a></li>
-<li class="chapter" data-level="8.0.12" data-path="charts.html"><a href="charts.html#interactive-charts-with-dygraph"><i class="fa fa-check"></i><b>8.0.12</b> Interactive charts with dygraph</a></li>
+<li class="chapter" data-level="8.0.10" data-path="charts.html"><a href="charts.html#scales"><i class="fa fa-check"></i><b>8.0.10</b> Scales</a></li>
+<li class="chapter" data-level="8.0.11" data-path="charts.html"><a href="charts.html#ggplot-wizard"><i class="fa fa-check"></i><b>8.0.11</b> ggplot wizard</a></li>
+<li class="chapter" data-level="8.0.12" data-path="charts.html"><a href="charts.html#interactive-charts-with-ggiraph"><i class="fa fa-check"></i><b>8.0.12</b> Interactive charts with ggiraph</a></li>
+<li class="chapter" data-level="8.0.13" data-path="charts.html"><a href="charts.html#interactive-charts-with-dygraph"><i class="fa fa-check"></i><b>8.0.13</b> Interactive charts with dygraph</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="maps.html"><a href="maps.html"><i class="fa fa-check"></i><b>9</b> Maps</a><ul>
 <li class="chapter" data-level="9.1" data-path="maps.html"><a href="maps.html#leaflet"><i class="fa fa-check"></i><b>9.1</b> Leaflet</a><ul>
@@ -308,6 +314,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16.3" data-path="git-version-control.html"><a href="git-version-control.html#starting-a-project-with-github"><i class="fa fa-check"></i><b>16.3</b> Starting a project with Github</a></li>
 <li class="chapter" data-level="16.4" data-path="git-version-control.html"><a href="git-version-control.html#hosting-a-site-on-github"><i class="fa fa-check"></i><b>16.4</b> Hosting a site on Github</a></li>
 </ul></li>
+<li class="chapter" data-level="17" data-path="other-languages.html"><a href="other-languages.html"><i class="fa fa-check"></i><b>17</b> Other Languages</a><ul>
+<li class="chapter" data-level="17.1" data-path="other-languages.html"><a href="other-languages.html#sql"><i class="fa fa-check"></i><b>17.1</b> SQL</a></li>
+<li class="chapter" data-level="17.2" data-path="other-languages.html"><a href="other-languages.html#python"><i class="fa fa-check"></i><b>17.2</b> Python</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -333,17 +343,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Create a new folder that will contain your book.</p>
 <p>Create an R Project file (.Rproj) for this folder (File &gt; New Project…).</p>
 <p>Create an index.Rmd with a YAML header like the example below. This is the first page of the book.</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1"><span class="op">---</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb233-2" data-line-number="2">title<span class="op">:</span><span class="st"> &quot;Bookdown Example&quot;</span></a>
-<a class="sourceLine" id="cb233-3" data-line-number="3">author<span class="op">:</span><span class="st"> &quot;Joe Bloggs&quot;</span></a>
-<a class="sourceLine" id="cb233-4" data-line-number="4">date<span class="op">:</span><span class="st"> &quot;`r Sys.Date()`&quot;</span></a>
-<a class="sourceLine" id="cb233-5" data-line-number="5">site<span class="op">:</span><span class="st"> </span>bookdown<span class="op">::</span>bookdown_site</a>
-<a class="sourceLine" id="cb233-6" data-line-number="6">output<span class="op">:</span><span class="st"> </span>bookdown<span class="op">::</span>gitbook</a>
-<a class="sourceLine" id="cb233-7" data-line-number="7">documentclass<span class="op">:</span><span class="st"> </span>book</a>
-<a class="sourceLine" id="cb233-8" data-line-number="8">description<span class="op">:</span><span class="st"> &quot;This is a simple bookdown tutorial&quot;</span></a>
-<a class="sourceLine" id="cb233-9" data-line-number="9"><span class="op">---</span></a>
-<a class="sourceLine" id="cb233-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb233-11" data-line-number="11"><span class="co"># Bookdown Example</span></a></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1"><span class="op">---</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb236-2" data-line-number="2">title<span class="op">:</span><span class="st"> &quot;Bookdown Example&quot;</span></a>
+<a class="sourceLine" id="cb236-3" data-line-number="3">author<span class="op">:</span><span class="st"> &quot;Joe Bloggs&quot;</span></a>
+<a class="sourceLine" id="cb236-4" data-line-number="4">date<span class="op">:</span><span class="st"> &quot;`r Sys.Date()`&quot;</span></a>
+<a class="sourceLine" id="cb236-5" data-line-number="5">site<span class="op">:</span><span class="st"> </span>bookdown<span class="op">::</span>bookdown_site</a>
+<a class="sourceLine" id="cb236-6" data-line-number="6">output<span class="op">:</span><span class="st"> </span>bookdown<span class="op">::</span>gitbook</a>
+<a class="sourceLine" id="cb236-7" data-line-number="7">documentclass<span class="op">:</span><span class="st"> </span>book</a>
+<a class="sourceLine" id="cb236-8" data-line-number="8">description<span class="op">:</span><span class="st"> &quot;This is a simple bookdown tutorial&quot;</span></a>
+<a class="sourceLine" id="cb236-9" data-line-number="9"><span class="op">---</span></a>
+<a class="sourceLine" id="cb236-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb236-11" data-line-number="11"><span class="co"># Bookdown Example</span></a></code></pre></div>
 <p>For each chapter/section you need a separate .Rmd file. By convention these should start with the section nummber, eg. 01-Chapter-A, 02-Chapter-B, and use ‘-’ instead of a space.</p>
 </div>
 <div id="create-the-book" class="section level2">
